@@ -7,7 +7,6 @@ Plataforma web que centraliza informações sobre cursos de graduação, prátic
 - HTML5 semântico
 - CSS3 (Flexbox, Grid, responsividade mobile-first)
 - JavaScript (comportamento inicial — menu mobile)
-- Próximas etapas: banco de dados e back-end para cadastro/autenticação
 
 ## Estrutura do Projeto
 
@@ -36,14 +35,12 @@ pratica/
 
 ## Protótipo
 Protótipo interativo (Figma Make): https://www.figma.com/make/cEJHfMpYyU8SYLpI377asE/Wi-Fi-da-Fe-Prototype
-Capturas de tela: ver `docs/prototipo/`.
 
 ## Documento da 2ª Entrega
-Modelo preenchido (protótipo, Scrum, Kanban, implementação): `docs/2a_Entrega_Wi-Fi_da_Fe.docx` (ainda não enviado ao Canvas — revisar com o grupo antes do envio).
+Modelo preenchido (protótipo, Scrum, Kanban, implementação): `docs/2a_Entrega_Wi-Fi_da_Fe.docx` 
 
 ## Gestão do projeto
 - Jira: projeto "Wi-Fi da Fé - Turma 102" (Backlog + Sprint 1 + Quadro Kanban).
-- Repositório GitHub do grupo: https://github.com/OiacFT/Wi-Fi-da-Fe_Turma-102 (repositório existente com páginas antigas — recomenda-se substituir pelo conteúdo desta pasta `pratica/`).
 
 ## Funcionalidades mapeadas (1ª entrega)
 1. Cadastro e Login de usuário
@@ -63,4 +60,4 @@ Modelo preenchido (protótipo, Scrum, Kanban, implementação): `docs/2a_Entrega
 
 ## Status do Projeto
 Em desenvolvimento — Sprint 1 (protótipo + telas iniciais em HTML/CSS).
-Próxima entrega: banco de dados, back-end de autenticação e validação de formulários com JavaScript.
+Próxima entrega: Autenticação e validação de formulários com JavaScript.
