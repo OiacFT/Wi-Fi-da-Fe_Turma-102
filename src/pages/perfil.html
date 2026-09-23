@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meu Perfil | Wi-Fi da Fé</title>
+  <meta name="description" content="Acompanhe seus dados, cursos de interesse e práticas de formação inscritas no Wi-Fi da Fé.">
+  <link rel="stylesheet" href="../styles/variables.css">
+  <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container">
+      <a class="navbar__brand" href="../../index.html"><span class="sinal">📶</span> Wi-Fi da Fé</a>
+      <button class="navbar__toggle" id="menu-toggle" aria-expanded="false" aria-controls="navbar-menu">☰ Menu</button>
+      <nav aria-label="Menu principal">
+        <ul class="navbar__menu" id="navbar-menu">
+          <li><a href="../../index.html">Início</a></li>
+          <li><a href="cursos.html">Cursos</a></li>
+          <li><a href="avisos.html">Avisos</a></li>
+          <li><a href="perfil.html" aria-current="page">Perfil</a></li>
+        </ul>
+      </nav>
+      <div class="navbar__actions">
+        <a class="btn btn--ghost btn--sm" href="login.html">Sair</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="perfil-layout">
+        <aside class="card">
+          <h2>Meus dados</h2>
+          <p><strong>Nome:</strong> Ana Souza</p>
+          <p><strong>E-mail:</strong> ana.souza@puccampinas.edu.br</p>
+          <p><strong>Curso de interesse:</strong> Engenharia da Computação</p>
+          <button type="button" class="btn btn--ghost btn--block">Editar dados</button>
+        </aside>
+
+        <div>
+          <section class="mt-lg" style="margin-top:0">
+            <h2>Cursos e práticas de formação salvos</h2>
+            <div class="tabela-wrap">
+              <table>
+                <caption>Meus itens salvos</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Categoria</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Ação</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Engenharia da Computação</td>
+                    <td>Graduação</td>
+                    <td><span class="badge badge--success">Matriculado</span></td>
+                    <td><a href="curso-detalhe.html">Ver</a></td>
+                  </tr>
+                  <tr>
+                    <td>Estágio em Psicologia Clínica</td>
+                    <td>Prática de Formação</td>
+                    <td><span class="badge badge--danger">Inscrição pendente</span></td>
+                    <td><a href="curso-detalhe.html">Ver</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <address>
+        Projeto Integrador — Wi-Fi da Fé (Turma 102)<br>
+        Contato: <a href="mailto:wifidafe@puc-campinas.edu.br">wifidafe@puc-campinas.edu.br</a>
+      </address>
+    </div>
+  </footer>
+
+  <script src="../scripts/main.js" defer></script>
+</body>
+</html>

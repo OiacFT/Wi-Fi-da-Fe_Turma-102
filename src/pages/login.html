@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entrar | Wi-Fi da Fé</title>
+  <meta name="description" content="Acesse sua conta Wi-Fi da Fé para acompanhar cursos, práticas de formação e prazos da PUC-Campinas.">
+  <link rel="stylesheet" href="../styles/variables.css">
+  <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container">
+      <a class="navbar__brand" href="../../index.html"><span class="sinal">📶</span> Wi-Fi da Fé</a>
+      <button class="navbar__toggle" id="menu-toggle" aria-expanded="false" aria-controls="navbar-menu">☰ Menu</button>
+      <nav aria-label="Menu principal">
+        <ul class="navbar__menu" id="navbar-menu">
+          <li><a href="../../index.html">Início</a></li>
+          <li><a href="cursos.html">Cursos</a></li>
+          <li><a href="avisos.html">Avisos</a></li>
+          <li><a href="perfil.html">Perfil</a></li>
+        </ul>
+      </nav>
+      <div class="navbar__actions">
+        <a class="btn btn--ghost btn--sm" href="login.html" aria-current="page">Entrar</a>
+        <a class="btn btn--primary btn--sm" href="cadastro.html">Criar conta</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="form-card">
+        <h1>Entrar na sua conta</h1>
+        <p class="text-muted">Acesse informações personalizadas de cursos e práticas de formação.</p>
+
+        <form action="#" method="post" novalidate>
+          <label for="email">E-mail institucional</label>
+          <input type="email" id="email" name="email" placeholder="seunome@puccampinas.edu.br" required>
+
+          <label for="senha">Senha</label>
+          <input type="password" id="senha" name="senha" minlength="6" required>
+          <p class="form-hint">Mínimo de 6 caracteres.</p>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn--primary btn--block">Entrar</button>
+          </div>
+        </form>
+
+        <p class="mt-lg center">Ainda não tem conta? <a href="cadastro.html">Cadastre-se</a></p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <address>
+        Projeto Integrador — Wi-Fi da Fé (Turma 102)<br>
+        Contato: <a href="mailto:wifidafe@puc-campinas.edu.br">wifidafe@puc-campinas.edu.br</a>
+      </address>
+    </div>
+  </footer>
+
+  <script src="../scripts/main.js" defer></script>
+</body>
+</html>

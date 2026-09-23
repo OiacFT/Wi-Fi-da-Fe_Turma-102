@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Central de Avisos e Prazos | Wi-Fi da Fé</title>
+  <meta name="description" content="Acompanhe prazos de inscrição, matrícula e entregas de cursos e práticas de formação da PUC-Campinas.">
+  <link rel="stylesheet" href="../styles/variables.css">
+  <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container">
+      <a class="navbar__brand" href="../../index.html"><span class="sinal">📶</span> Wi-Fi da Fé</a>
+      <button class="navbar__toggle" id="menu-toggle" aria-expanded="false" aria-controls="navbar-menu">☰ Menu</button>
+      <nav aria-label="Menu principal">
+        <ul class="navbar__menu" id="navbar-menu">
+          <li><a href="../../index.html">Início</a></li>
+          <li><a href="cursos.html">Cursos</a></li>
+          <li><a href="avisos.html" aria-current="page">Avisos</a></li>
+          <li><a href="perfil.html">Perfil</a></li>
+        </ul>
+      </nav>
+      <div class="navbar__actions">
+        <a class="btn btn--ghost btn--sm" href="login.html">Entrar</a>
+        <a class="btn btn--primary btn--sm" href="cadastro.html">Criar conta</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="section__header">
+        <h1>Central de Avisos e Prazos</h1>
+        <p>Todos os prazos importantes de cursos e práticas de formação, em um só lugar.</p>
+      </div>
+
+      <div class="tabela-wrap">
+        <table>
+          <caption>Prazos e avisos ativos</caption>
+          <thead>
+            <tr>
+              <th scope="col">Data</th>
+              <th scope="col">Aviso</th>
+              <th scope="col">Categoria</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><time datetime="2026-09-26">26/09</time></td>
+              <td>Encerramento de inscrições — Estágio em Psicologia Clínica</td>
+              <td>Prática de Formação</td>
+              <td><span class="badge badge--danger">Urgente</span></td>
+            </tr>
+            <tr>
+              <td><time datetime="2026-10-05">05/10</time></td>
+              <td>Matrícula — Engenharia da Computação</td>
+              <td>Graduação</td>
+              <td><span class="badge badge--success">Em dia</span></td>
+            </tr>
+            <tr>
+              <td><time datetime="2026-10-10">10/10</time></td>
+              <td>Entrega de documentos — Prática em Direito Comunitário</td>
+              <td>Extensão</td>
+              <td><span class="badge badge--success">Em dia</span></td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th scope="row">Total de avisos ativos</th>
+              <td colspan="3">3</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <address>
+        Projeto Integrador — Wi-Fi da Fé (Turma 102)<br>
+        Contato: <a href="mailto:wifidafe@puc-campinas.edu.br">wifidafe@puc-campinas.edu.br</a>
+      </address>
+    </div>
+  </footer>
+
+  <script src="../scripts/main.js" defer></script>
+</body>
+</html>

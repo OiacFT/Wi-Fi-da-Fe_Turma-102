@@ -1,0 +1,341 @@
+/* ==========================================================================
+   Wi-Fi da Fé — main.css
+   Base: reset simples + tokens (variables.css) + Flexbox/Grid + mobile-first
+   ========================================================================== */
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.5;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--color-primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+h1, h2, h3 { line-height: 1.2; margin: 0 0 var(--spacing-sm); }
+p { margin: 0 0 var(--spacing-md); }
+
+:focus-visible {
+  outline: 3px solid rgba(67, 56, 202, 0.35);
+  outline-offset: 2px;
+}
+
+.container {
+  width: min(100% - 32px, 1100px);
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   Navbar (Flexbox) — mobile-first
+   ========================================================================== */
+
+.navbar {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) 16px;
+  gap: var(--spacing-sm);
+}
+
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--color-primary-dark);
+}
+
+.navbar__brand .sinal { color: var(--color-accent); }
+
+.navbar__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.navbar .container > nav { width: 100%; order: 3; }
+
+.navbar__menu {
+  list-style: none;
+  display: none;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin: 0;
+  padding: var(--spacing-sm) 0 0;
+  width: 100%;
+}
+
+.navbar__menu--aberto { display: flex; }
+
+.navbar__menu a {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.navbar__menu a[aria-current="page"] {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.navbar__actions {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+@media (min-width: 720px) {
+  .navbar .container { flex-wrap: nowrap; }
+  .navbar .container > nav { width: auto; order: 0; }
+  .navbar__toggle { display: none; }
+  .navbar__menu { display: flex !important; flex-direction: row; width: auto; padding: 0; }
+}
+
+/* ==========================================================================
+   Botões
+   ========================================================================== */
+
+.btn {
+  display: inline-block;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 10px 18px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn:hover { text-decoration: none; }
+
+.btn--primary { background: var(--color-primary); color: #fff; }
+.btn--primary:hover { background: var(--color-primary-dark); }
+
+.btn--accent { background: var(--color-accent); color: #1e1204; }
+.btn--accent:hover { background: var(--color-accent-dark); color: #fff; }
+
+.btn--ghost { background: transparent; color: var(--color-primary); border: 1px solid var(--color-primary); }
+.btn--ghost:hover { background: rgba(67, 56, 202, 0.08); }
+
+.btn--sm { padding: 6px 12px; font-size: 0.85rem; }
+.btn--block { display: block; width: 100%; }
+
+/* ==========================================================================
+   Hero (tela inicial)
+   ========================================================================== */
+
+.hero {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: #fff;
+  padding: var(--spacing-xl) 0;
+}
+
+.hero .container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.hero h1 { font-size: 2rem; }
+.hero p.lead { font-size: 1.05rem; opacity: 0.92; max-width: 60ch; }
+
+.hero__actions { display: flex; flex-wrap: wrap; gap: var(--spacing-sm); }
+
+@media (min-width: 720px) {
+  .hero h1 { font-size: 2.6rem; }
+}
+
+/* ==========================================================================
+   Seções e cards (Grid responsivo)
+   ========================================================================== */
+
+.section { padding: var(--spacing-xl) 0; }
+.section__header { margin-bottom: var(--spacing-lg); }
+.section__header p { color: var(--color-text-muted); }
+
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.card h3 { color: var(--color-primary-dark); }
+
+.card--curso { display: flex; flex-direction: column; gap: var(--spacing-sm); }
+.card--curso .badge-row { display: flex; gap: var(--spacing-xs); flex-wrap: wrap; }
+
+.badge {
+  display: inline-block;
+  background: rgba(67, 56, 202, 0.1);
+  color: var(--color-primary-dark);
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.badge--accent { background: rgba(245, 158, 11, 0.15); color: var(--color-accent-dark); }
+.badge--danger { background: var(--color-danger-bg); color: var(--color-danger); }
+.badge--success { background: var(--color-success-bg); color: var(--color-success); }
+
+/* ==========================================================================
+   Formulários
+   ========================================================================== */
+
+.form-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--spacing-lg);
+  max-width: 480px;
+  margin: 0 auto;
+  box-shadow: var(--shadow-card);
+}
+
+fieldset {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-md);
+  margin: 0 0 var(--spacing-md);
+}
+
+legend { font-weight: 700; padding: 0 6px; color: var(--color-primary-dark); }
+
+label { display: block; margin: var(--spacing-sm) 0 6px; font-weight: 600; font-size: 0.9rem; }
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  font: inherit;
+  margin-bottom: var(--spacing-sm);
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: 3px solid rgba(67, 56, 202, 0.2);
+  border-color: var(--color-primary);
+}
+
+.form-row { display: flex; flex-wrap: wrap; gap: var(--spacing-md); }
+.form-row > * { flex: 1 1 200px; }
+
+.form-actions { display: flex; gap: var(--spacing-sm); margin-top: var(--spacing-sm); flex-wrap: wrap; }
+
+.form-hint { font-size: 0.85rem; color: var(--color-text-muted); margin-top: -4px; }
+
+/* Filtros (cursos.html) */
+.filtros {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* ==========================================================================
+   Tabelas
+   ========================================================================== */
+
+.tabela-wrap { overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--color-border); }
+
+table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  background: var(--color-surface);
+}
+
+caption {
+  text-align: left;
+  font-weight: 700;
+  padding: var(--spacing-sm) var(--spacing-md);
+  color: var(--color-primary-dark);
+  background: var(--color-surface);
+}
+
+thead th {
+  background: #eef2ff;
+  text-align: left;
+}
+
+th, td {
+  border-bottom: 1px solid var(--color-border);
+  padding: 10px 14px;
+  text-align: left;
+}
+
+tfoot td, tfoot th { font-weight: 700; background: #f8fafc; }
+
+/* ==========================================================================
+   Layout com Grid — dashboard de perfil
+   ========================================================================== */
+
+.perfil-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+}
+
+@media (min-width: 860px) {
+  .perfil-layout {
+    grid-template-columns: 280px 1fr;
+    align-items: start;
+  }
+}
+
+/* ==========================================================================
+   Rodapé
+   ========================================================================== */
+
+.footer {
+  background: var(--color-primary-dark);
+  color: #e2e8f0;
+  padding: var(--spacing-lg) 0;
+  margin-top: var(--spacing-xl);
+}
+
+.footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  font-size: 0.9rem;
+}
+
+.footer a { color: #fff; }
+
+/* Utilitários */
+.text-muted { color: var(--color-text-muted); }
+.mt-lg { margin-top: var(--spacing-lg); }
+.center { text-align: center; }

@@ -1,0 +1,36 @@
+:root {
+  /* Cores principais - identidade "Wi-Fi da Fé" */
+  --color-primary: #4338ca;
+  --color-primary-dark: #312e81;
+  --color-primary-light: #6d5ce8;
+  --color-accent: #f59e0b;
+  --color-accent-dark: #b45309;
+
+  /* Neutros */
+  --color-bg: #f8fafc;
+  --color-surface: #ffffff;
+  --color-border: #e2e8f0;
+  --color-text: #1e293b;
+  --color-text-muted: #64748b;
+
+  /* Estados */
+  --color-success: #16a34a;
+  --color-danger: #dc2626;
+  --color-success-bg: #ecfdf3;
+  --color-danger-bg: #fef2f2;
+
+  /* Tipografia */
+  --font-family: 'Segoe UI', system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+
+  /* Espaçamento e forma */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 40px;
+  --radius: 10px;
+  --radius-sm: 6px;
+  --shadow-card: 0 4px 14px rgba(30, 41, 59, 0.08);
+
+  /* Breakpoint de referência (documentação): mobile-first, desktop >= 960px */
+}
