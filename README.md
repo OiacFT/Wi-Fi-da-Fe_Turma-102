@@ -50,7 +50,7 @@ Os dados não saem do navegador do usuário e são perdidos se o `localStorage` 
 Protótipo interativo (Figma Make): https://www.figma.com/make/cEJHfMpYyU8SYLpI377asE/Wi-Fi-da-Fe-Prototype
 
 ## Documento da 2ª Entrega
-Modelo preenchido (protótipo, Scrum, Kanban, implementação): `docs/2a_Entrega_Wi-Fi_da_Fe.docx` — sem menções a banco de dados/back-end, com as telas Sobre e Contato incluídas. Documento ainda não enviado ao Canvas — revisar com o grupo antes do envio.
+Modelo preenchido (protótipo, Scrum, Kanban, implementação): `docs/2a_Entrega_Wi-Fi_da_Fe.docx` — sem menções a banco de dados/back-end.
 
 ## Gestão do projeto
 - Jira: projeto "Wi-Fi da Fé - Turma 102" (Backlog + Sprint 1 + Quadro Kanban).
