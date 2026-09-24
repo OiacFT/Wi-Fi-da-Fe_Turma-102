@@ -6,8 +6,8 @@ Plataforma web que centraliza informações sobre cursos de graduação, prátic
 ## Tecnologias Utilizadas (Sprint 1)
 - HTML5 semântico
 - CSS3 (Flexbox, Grid, responsividade mobile-first)
-- JavaScript (comportamento inicial — menu mobile)
-- Próximas etapas: banco de dados e back-end para cadastro/autenticação
+- JavaScript (comportamento de interface e persistência de dados)
+- **Persistência local (localStorage)** — cadastro, login, cursos salvos e mensagens de contato ficam armazenados apenas no navegador do usuário. **Este projeto não utiliza banco de dados, back-end nem API.**
 
 ## Estrutura do Projeto
 
@@ -21,37 +21,49 @@ pratica/
 │   │   ├── cursos.html          → Busca e filtros de cursos/práticas de formação
 │   │   ├── curso-detalhe.html   → Detalhes de um curso/prática específica
 │   │   ├── avisos.html          → Central de avisos e prazos
-│   │   └── perfil.html          → Perfil do usuário
+│   │   ├── perfil.html          → Perfil do usuário (lido do localStorage)
+│   │   ├── sobre.html           → Sobre o projeto (problema, missão, ODS)
+│   │   └── contato.html         → Fale conosco
 │   ├── styles/
 │   │   ├── variables.css        → Tokens de cor, fonte e espaçamento
 │   │   └── main.css             → Estilos gerais (navbar, cards, formulários, tabelas)
 │   └── scripts/
-│       └── main.js              → Comportamento inicial (menu mobile)
+│       ├── storage.js           → Funções de leitura/escrita no localStorage (usuário, cursos salvos, mensagens)
+│       └── main.js              → Comportamento de interface (menu mobile)
 ├── assets/
 │   └── img/                 → Imagens e ícones
 ├── docs/
-│   └── prototipo/           → Protótipo Figma (prints/exportações)
+│   ├── prototipo/           → Capturas de tela do protótipo (9 telas)
+│   └── 2a_Entrega_Wi-Fi_da_Fe_v2.docx → Documento da 2ª entrega preenchido (versão atual)
 └── README.md
 ```
+
+## Persistência de dados (sem back-end)
+Todos os dados do usuário são salvos com a Web Storage API do navegador (`localStorage`), via `src/scripts/storage.js`:
+- **Cadastro/Login**: `cadastro.html` grava o usuário; `login.html` confere o e-mail salvo (simulação de autenticação, sem servidor).
+- **Cursos salvos**: `curso-detalhe.html` → "Salvar interesse" adiciona o curso à lista exibida em `perfil.html`.
+- **Contato**: `contato.html` registra a mensagem localmente (para contato real, usar o e-mail informado na página).
+
+Os dados não saem do navegador do usuário e são perdidos se o `localStorage` for limpo.
 
 ## Protótipo
 Protótipo interativo (Figma Make): https://www.figma.com/make/cEJHfMpYyU8SYLpI377asE/Wi-Fi-da-Fe-Prototype
 Capturas de tela: ver `docs/prototipo/`.
 
 ## Documento da 2ª Entrega
-Modelo preenchido (protótipo, Scrum, Kanban, implementação): `docs/2a_Entrega_Wi-Fi_da_Fe.docx` (ainda não enviado ao Canvas — revisar com o grupo antes do envio).
+Modelo preenchido (protótipo, Scrum, Kanban, implementação): `docs/2a_Entrega_Wi-Fi_da_Fe_v2.docx` — versão atualizada sem menções a banco de dados/back-end, com as telas Sobre e Contato (a `2a_Entrega_Wi-Fi_da_Fe.docx`, sem o sufixo `_v2`, é a versão anterior e pode ser removida). Documento ainda não enviado ao Canvas — revisar com o grupo antes do envio.
 
 ## Gestão do projeto
 - Jira: projeto "Wi-Fi da Fé - Turma 102" (Backlog + Sprint 1 + Quadro Kanban).
-- Repositório GitHub do grupo: https://github.com/OiacFT/Wi-Fi-da-Fe_Turma-102 (repositório existente com páginas antigas — recomenda-se substituir pelo conteúdo desta pasta `pratica/`).
+- Repositório GitHub do grupo: https://github.com/OiacFT/Wi-Fi-da-Fe_Turma-102
 
 ## Funcionalidades mapeadas (1ª entrega)
-1. Cadastro e Login de usuário
+1. Cadastro e Login de usuário (via localStorage)
 2. Busca e filtros de cursos e práticas de formação (área, modalidade, período)
 3. Central de avisos e prazos
 4. Painel de atualização de informações (responsáveis) — próxima sprint
 5. Página de detalhes de curso/prática de formação
-6. Perfil do usuário (cursos de interesse/inscritos)
+6. Perfil do usuário (cursos de interesse salvos no navegador)
 
 ## Integrantes — Turma 102
 - Caio Fernandes Taques – RA: 26002282
@@ -62,5 +74,5 @@ Modelo preenchido (protótipo, Scrum, Kanban, implementação): `docs/2a_Entrega
 - Roberto Reis da Mata Filho – RA: 26018001
 
 ## Status do Projeto
-Em desenvolvimento — Sprint 1 (protótipo + telas iniciais em HTML/CSS).
-Próxima entrega: banco de dados, back-end de autenticação e validação de formulários com JavaScript.
+Em desenvolvimento — Sprint 1 (protótipo + 9 telas em HTML/CSS + persistência local).
+Próxima entrega: validação de formulários com JavaScript, painel de atualização de informações e refinamentos visuais.

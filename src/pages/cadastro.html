@@ -35,7 +35,7 @@
         <h1>Criar sua conta</h1>
         <p class="text-muted">Gratuito para toda a comunidade acadêmica da PUC-Campinas.</p>
 
-        <form action="#" method="post" novalidate>
+        <form id="form-cadastro" novalidate>
           <fieldset>
             <legend>Dados pessoais</legend>
 
@@ -73,10 +73,13 @@
             <label><input type="checkbox" name="termos" required style="width:auto; display:inline-block;"> Aceito os <a href="#">termos de uso</a></label>
           </fieldset>
 
+          <p id="erro-cadastro" class="form-hint" role="alert" style="color:var(--color-danger);"></p>
+
           <div class="form-actions">
             <button type="submit" class="btn btn--primary btn--block">Criar conta</button>
           </div>
         </form>
+        <p class="form-hint">Seus dados ficam salvos apenas neste navegador (localStorage) — este é um protótipo sem back-end/banco de dados.</p>
 
         <p class="mt-lg center">Já tem conta? <a href="login.html">Entrar</a></p>
       </div>
@@ -89,9 +92,35 @@
         Projeto Integrador — Wi-Fi da Fé (Turma 102)<br>
         Contato: <a href="mailto:wifidafe@puc-campinas.edu.br">wifidafe@puc-campinas.edu.br</a>
       </address>
+      <nav aria-label="Links institucionais">
+        <ul class="footer__links">
+          <li><a href="sobre.html">Sobre o projeto</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
     </div>
   </footer>
 
+  <script src="../scripts/storage.js"></script>
   <script src="../scripts/main.js" defer></script>
+  <script>
+    document.getElementById("form-cadastro").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const senha = document.getElementById("senha").value;
+      const confirmar = document.getElementById("confirmar-senha").value;
+      const erro = document.getElementById("erro-cadastro");
+      if (senha !== confirmar) {
+        erro.textContent = "As senhas não coincidem. Verifique e tente novamente.";
+        return;
+      }
+      erro.textContent = "";
+      salvarUsuario({
+        nome: document.getElementById("nome").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        curso: document.getElementById("curso-interesse").value,
+      });
+      window.location.href = "perfil.html";
+    });
+  </script>
 </body>
 </html>

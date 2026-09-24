@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contato | Wi-Fi da Fé</title>
+  <meta name="description" content="Fale com a equipe do Wi-Fi da Fé — dúvidas, sugestões ou parcerias.">
+  <link rel="stylesheet" href="../styles/variables.css">
+  <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container">
+      <a class="navbar__brand" href="../../index.html"><span class="sinal">📶</span> Wi-Fi da Fé</a>
+      <button class="navbar__toggle" id="menu-toggle" aria-expanded="false" aria-controls="navbar-menu">☰ Menu</button>
+      <nav aria-label="Menu principal">
+        <ul class="navbar__menu" id="navbar-menu">
+          <li><a href="../../index.html">Início</a></li>
+          <li><a href="cursos.html">Cursos</a></li>
+          <li><a href="avisos.html">Avisos</a></li>
+          <li><a href="perfil.html">Perfil</a></li>
+        </ul>
+      </nav>
+      <div class="navbar__actions">
+        <a class="btn btn--ghost btn--sm" href="login.html">Entrar</a>
+        <a class="btn btn--primary btn--sm" href="cadastro.html">Criar conta</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="form-card">
+        <h1>Fale conosco</h1>
+        <p class="text-muted">Dúvidas, sugestões ou parcerias? Escreva para a equipe do Wi-Fi da Fé.</p>
+        <p><strong>E-mail:</strong> <a href="mailto:wifidafe@puc-campinas.edu.br">wifidafe@puc-campinas.edu.br</a></p>
+
+        <form id="form-contato" novalidate>
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" required>
+
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="assunto">Assunto</label>
+          <select id="assunto" name="assunto">
+            <option>Dúvida sobre um curso</option>
+            <option>Sugestão para a plataforma</option>
+            <option>Reportar um problema</option>
+            <option>Outro</option>
+          </select>
+
+          <label for="mensagem">Mensagem</label>
+          <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn--primary btn--block">Enviar mensagem</button>
+          </div>
+        </form>
+        <p id="msg-contato" class="form-hint" role="status"></p>
+        <p class="form-hint">Este é um protótipo sem back-end: a mensagem fica registrada apenas neste navegador (localStorage). Para contato real, use o e-mail acima.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <address>
+        Projeto Integrador — Wi-Fi da Fé (Turma 102)<br>
+        Contato: <a href="mailto:wifidafe@puc-campinas.edu.br">wifidafe@puc-campinas.edu.br</a>
+      </address>
+      <nav aria-label="Links institucionais">
+        <ul class="footer__links">
+          <li><a href="sobre.html">Sobre o projeto</a></li>
+          <li><a href="contato.html" aria-current="page">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="../scripts/storage.js"></script>
+  <script src="../scripts/main.js" defer></script>
+  <script>
+    document.getElementById("form-contato").addEventListener("submit", (e) => {
+      e.preventDefault();
+      salvarMensagemContato({
+        nome: document.getElementById("nome").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        assunto: document.getElementById("assunto").value,
+        mensagem: document.getElementById("mensagem").value.trim(),
+      });
+      document.getElementById("msg-contato").textContent =
+        "Mensagem registrada! Nossa equipe responderá em breve pelo e-mail informado.";
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>

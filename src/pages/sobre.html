@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sobre | Wi-Fi da Fé</title>
+  <meta name="description" content="Conheça o Wi-Fi da Fé: um projeto acadêmico da PUC-Campinas para centralizar cursos, práticas de formação e prazos.">
+  <link rel="stylesheet" href="../styles/variables.css">
+  <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container">
+      <a class="navbar__brand" href="../../index.html"><span class="sinal">📶</span> Wi-Fi da Fé</a>
+      <button class="navbar__toggle" id="menu-toggle" aria-expanded="false" aria-controls="navbar-menu">☰ Menu</button>
+      <nav aria-label="Menu principal">
+        <ul class="navbar__menu" id="navbar-menu">
+          <li><a href="../../index.html">Início</a></li>
+          <li><a href="cursos.html">Cursos</a></li>
+          <li><a href="avisos.html">Avisos</a></li>
+          <li><a href="perfil.html">Perfil</a></li>
+        </ul>
+      </nav>
+      <div class="navbar__actions">
+        <a class="btn btn--ghost btn--sm" href="login.html">Entrar</a>
+        <a class="btn btn--primary btn--sm" href="cadastro.html">Criar conta</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <h1>Sobre o Wi-Fi da Fé</h1>
+      <p class="lead text-muted">Um projeto acadêmico criado por estudantes da PUC-Campinas para facilitar o acesso a cursos, práticas de formação e prazos importantes.</p>
+
+      <section class="mt-lg">
+        <h2>O problema</h2>
+        <p>Informações sobre cursos de graduação, práticas de formação e prazos ficam espalhadas entre e-mails institucionais, avisos e o site oficial da PUC — difícil de acompanhar e fácil de perder prazos importantes.</p>
+      </section>
+
+      <section class="mt-lg">
+        <h2>Nossa missão</h2>
+        <p>Centralizar essas informações em um único lugar simples e acessível, para que qualquer estudante encontre o que precisa em segundos e nunca mais perca um prazo de inscrição ou matrícula.</p>
+      </section>
+
+      <section class="mt-lg">
+        <h2>Objetivos de Desenvolvimento Sustentável</h2>
+        <div class="grid-cards">
+          <article class="card">
+            <span class="badge badge--accent">ODS 4</span>
+            <h3>Educação de Qualidade</h3>
+            <p class="text-muted">Facilitamos o acesso à informação acadêmica, ajudando estudantes a aproveitar melhor as oportunidades de ensino.</p>
+          </article>
+          <article class="card">
+            <span class="badge badge--accent">ODS 9</span>
+            <h3>Indústria, Inovação e Infraestrutura</h3>
+            <p class="text-muted">Criamos uma infraestrutura digital simples para modernizar a comunicação entre a instituição e os estudantes.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="mt-lg card">
+        <h2>Sobre este protótipo</h2>
+        <p>O Wi-Fi da Fé é desenvolvido como Projeto Integrador (PI: Desenvolvimento de Sistemas Web, Turma 102). Nesta etapa, o projeto é inteiramente front-end (HTML, CSS e JavaScript): os dados de cadastro, login e cursos salvos ficam armazenados apenas no navegador de cada visitante (localStorage), sem banco de dados ou back-end.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <address>
+        Projeto Integrador — Wi-Fi da Fé (Turma 102)<br>
+        Contato: <a href="mailto:wifidafe@puc-campinas.edu.br">wifidafe@puc-campinas.edu.br</a>
+      </address>
+      <nav aria-label="Links institucionais">
+        <ul class="footer__links">
+          <li><a href="sobre.html" aria-current="page">Sobre o projeto</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="../scripts/storage.js"></script>
+  <script src="../scripts/main.js" defer></script>
+</body>
+</html>

@@ -35,7 +35,7 @@
         <h1>Entrar na sua conta</h1>
         <p class="text-muted">Acesse informações personalizadas de cursos e práticas de formação.</p>
 
-        <form action="#" method="post" novalidate>
+        <form id="form-login" novalidate>
           <label for="email">E-mail institucional</label>
           <input type="email" id="email" name="email" placeholder="seunome@puccampinas.edu.br" required>
 
@@ -43,10 +43,13 @@
           <input type="password" id="senha" name="senha" minlength="6" required>
           <p class="form-hint">Mínimo de 6 caracteres.</p>
 
+          <p id="erro-login" class="form-hint" role="alert" style="color:var(--color-danger);"></p>
+
           <div class="form-actions">
             <button type="submit" class="btn btn--primary btn--block">Entrar</button>
           </div>
         </form>
+        <p class="form-hint">Login simulado neste navegador (localStorage) — protótipo sem back-end/banco de dados.</p>
 
         <p class="mt-lg center">Ainda não tem conta? <a href="cadastro.html">Cadastre-se</a></p>
       </div>
@@ -59,9 +62,30 @@
         Projeto Integrador — Wi-Fi da Fé (Turma 102)<br>
         Contato: <a href="mailto:wifidafe@puc-campinas.edu.br">wifidafe@puc-campinas.edu.br</a>
       </address>
+      <nav aria-label="Links institucionais">
+        <ul class="footer__links">
+          <li><a href="sobre.html">Sobre o projeto</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
     </div>
   </footer>
 
+  <script src="../scripts/storage.js"></script>
   <script src="../scripts/main.js" defer></script>
+  <script>
+    document.getElementById("form-login").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const email = document.getElementById("email").value.trim();
+      const usuario = obterUsuario();
+      const erro = document.getElementById("erro-login");
+      if (usuario && usuario.email.toLowerCase() === email.toLowerCase()) {
+        erro.textContent = "";
+        window.location.href = "perfil.html";
+      } else {
+        erro.textContent = "Não encontramos uma conta com esse e-mail neste navegador. Crie uma conta primeiro.";
+      }
+    });
+  </script>
 </body>
 </html>

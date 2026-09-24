@@ -33,15 +33,16 @@
       <div class="perfil-layout">
         <aside class="card">
           <h2>Meus dados</h2>
-          <p><strong>Nome:</strong> Ana Souza</p>
-          <p><strong>E-mail:</strong> ana.souza@puccampinas.edu.br</p>
-          <p><strong>Curso de interesse:</strong> Engenharia da Computação</p>
-          <button type="button" class="btn btn--ghost btn--block">Editar dados</button>
+          <p><strong>Nome:</strong> <span id="perfil-nome">—</span></p>
+          <p><strong>E-mail:</strong> <span id="perfil-email">—</span></p>
+          <p><strong>Curso de interesse:</strong> <span id="perfil-curso">—</span></p>
+          <button type="button" id="btn-sair" class="btn btn--ghost btn--block">Sair (limpar dados locais)</button>
         </aside>
 
         <div>
           <section class="mt-lg" style="margin-top:0">
             <h2>Cursos e práticas de formação salvos</h2>
+            <p class="text-muted">Salvos apenas neste navegador (localStorage) — sem banco de dados.</p>
             <div class="tabela-wrap">
               <table>
                 <caption>Meus itens salvos</caption>
@@ -53,19 +54,7 @@
                     <th scope="col">Ação</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td>Engenharia da Computação</td>
-                    <td>Graduação</td>
-                    <td><span class="badge badge--success">Matriculado</span></td>
-                    <td><a href="curso-detalhe.html">Ver</a></td>
-                  </tr>
-                  <tr>
-                    <td>Estágio em Psicologia Clínica</td>
-                    <td>Prática de Formação</td>
-                    <td><span class="badge badge--danger">Inscrição pendente</span></td>
-                    <td><a href="curso-detalhe.html">Ver</a></td>
-                  </tr>
+                <tbody id="cursos-salvos-body">
                 </tbody>
               </table>
             </div>
@@ -81,9 +70,63 @@
         Projeto Integrador — Wi-Fi da Fé (Turma 102)<br>
         Contato: <a href="mailto:wifidafe@puc-campinas.edu.br">wifidafe@puc-campinas.edu.br</a>
       </address>
+      <nav aria-label="Links institucionais">
+        <ul class="footer__links">
+          <li><a href="sobre.html">Sobre o projeto</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
     </div>
   </footer>
 
+  <script src="../scripts/storage.js"></script>
   <script src="../scripts/main.js" defer></script>
+  <script>
+    const usuario = obterUsuario();
+    if (!usuario) {
+      window.location.href = "login.html";
+    } else {
+      document.getElementById("perfil-nome").textContent = usuario.nome;
+      document.getElementById("perfil-email").textContent = usuario.email;
+      document.getElementById("perfil-curso").textContent = usuario.curso || "Não informado";
+    }
+
+    function renderCursosSalvos() {
+      const tbody = document.getElementById("cursos-salvos-body");
+      const cursos = obterCursosSalvos();
+      tbody.innerHTML = "";
+      if (cursos.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="4">Nenhum curso salvo ainda. Visite <a href="cursos.html">Cursos</a> e clique em "Ver detalhes".</td></tr>';
+        return;
+      }
+      cursos.forEach((curso) => {
+        const tr = document.createElement("tr");
+        const tdNome = document.createElement("td");
+        tdNome.textContent = curso.nome;
+        const tdCategoria = document.createElement("td");
+        tdCategoria.textContent = curso.categoria;
+        const tdStatus = document.createElement("td");
+        tdStatus.innerHTML = '<span class="badge badge--accent">Interesse</span>';
+        const tdAcao = document.createElement("td");
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "btn btn--ghost btn--sm";
+        btn.textContent = "Remover";
+        btn.addEventListener("click", () => {
+          removerCurso(curso.nome);
+          renderCursosSalvos();
+        });
+        tdAcao.appendChild(btn);
+        tr.append(tdNome, tdCategoria, tdStatus, tdAcao);
+        tbody.appendChild(tr);
+      });
+    }
+    renderCursosSalvos();
+
+    document.getElementById("btn-sair").addEventListener("click", () => {
+      removerUsuario();
+      window.location.href = "../../index.html";
+    });
+  </script>
 </body>
 </html>

@@ -335,6 +335,14 @@ tfoot td, tfoot th { font-weight: 700; background: #f8fafc; }
 
 .footer a { color: #fff; }
 
+.footer__links {
+  list-style: none;
+  display: flex;
+  gap: var(--spacing-md);
+  margin: 0;
+  padding: 0;
+}
+
 /* Utilitários */
 .text-muted { color: var(--color-text-muted); }
 .mt-lg { margin-top: var(--spacing-lg); }

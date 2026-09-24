@@ -75,8 +75,9 @@
 
       <section class="mt-lg card" style="max-width:480px">
         <h2>Interessado?</h2>
-        <p class="text-muted">Salve este curso no seu perfil para acompanhar prazos de inscrição e matrícula.</p>
-        <button type="button" class="btn btn--primary">Salvar interesse</button>
+        <p class="text-muted">Salve este curso no seu perfil (armazenado neste navegador) para acompanhar prazos de inscrição e matrícula.</p>
+        <button type="button" id="btn-salvar-interesse" class="btn btn--primary">Salvar interesse</button>
+        <p id="msg-salvar" class="form-hint" role="status"></p>
       </section>
     </div>
   </main>
@@ -87,9 +88,23 @@
         Projeto Integrador — Wi-Fi da Fé (Turma 102)<br>
         Contato: <a href="mailto:wifidafe@puc-campinas.edu.br">wifidafe@puc-campinas.edu.br</a>
       </address>
+      <nav aria-label="Links institucionais">
+        <ul class="footer__links">
+          <li><a href="sobre.html">Sobre o projeto</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
     </div>
   </footer>
 
+  <script src="../scripts/storage.js"></script>
   <script src="../scripts/main.js" defer></script>
+  <script>
+    document.getElementById("btn-salvar-interesse").addEventListener("click", () => {
+      salvarCurso({ nome: "Engenharia da Computação", categoria: "Graduação" });
+      document.getElementById("msg-salvar").textContent =
+        "Curso salvo no seu perfil (neste navegador). Veja em Perfil > Cursos e práticas de formação salvos.";
+    });
+  </script>
 </body>
 </html>
