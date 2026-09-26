@@ -11,9 +11,10 @@ Plataforma web que centraliza informações sobre cursos de graduação, prátic
 ## Estrutura do repositório
 
 ```
-index.html                → Tela inicial
+index.html                → Redirecionamento para src/pages/index.html
 src/
-├── pages/                → Telas HTML separadas
+├── pages/                → Todas as telas do site
+│   ├── index.html           → Tela inicial (Home)
 │   ├── login.html
 │   ├── cadastro.html
 │   ├── cursos.html          → Busca e filtros de cursos/práticas de formação
