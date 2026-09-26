@@ -1,41 +1,39 @@
 # Wi-Fi da Fé
 
-## Descrição
 Plataforma web que centraliza informações sobre cursos de graduação, práticas de formação e prazos da PUC-Campinas, hoje dispersas entre e-mails, avisos e o site institucional. Projeto acadêmico sem fins lucrativos (Terceiro Setor), alinhado à ODS 4 (Educação de Qualidade) e ODS 9 (Indústria, Inovação e Infraestrutura).
 
-## Tecnologias Utilizadas (Sprint 1)
+## Tecnologias (Sprint 1)
 - HTML5 semântico
 - CSS3 (Flexbox, Grid, responsividade mobile-first)
 - JavaScript (comportamento de interface e persistência de dados)
-- **Persistência local (localStorage)** — cadastro, login, cursos salvos e mensagens de contato ficam armazenados apenas no navegador do usuário. **Este projeto não utiliza banco de dados, back-end nem API.**
+- **Persistência local (localStorage)** — cadastro, login, cursos salvos e mensagens de contato ficam armazenados apenas no navegador do usuário. Este projeto não utiliza banco de dados, back-end nem API.
 
-## Estrutura do Projeto
+## Estrutura do repositório
 
 ```
-pratica/
-├── index.html              → Tela inicial
-├── src/
-│   ├── pages/               → Telas HTML separadas
-│   │   ├── login.html
-│   │   ├── cadastro.html
-│   │   ├── cursos.html          → Busca e filtros de cursos/práticas de formação
-│   │   ├── curso-detalhe.html   → Detalhes de um curso/prática específica
-│   │   ├── avisos.html          → Central de avisos e prazos
-│   │   ├── perfil.html          → Perfil do usuário (lido do localStorage)
-│   │   ├── sobre.html           → Sobre o projeto (problema, missão, ODS)
-│   │   └── contato.html         → Fale conosco
-│   ├── styles/
-│   │   ├── variables.css        → Tokens de cor, fonte e espaçamento
-│   │   └── main.css             → Estilos gerais (navbar, cards, formulários, tabelas)
-│   └── scripts/
-│       ├── storage.js           → Funções de leitura/escrita no localStorage (usuário, cursos salvos, mensagens)
-│       └── main.js              → Comportamento de interface (menu mobile)
-├── assets/
-│   └── img/                 → Imagens e ícones
-├── docs/
-│   ├── prototipo/           → Capturas de tela do protótipo (9 telas)
-│   └── 2a_Entrega_Wi-Fi_da_Fe.docx → Documento da 2ª entrega preenchido
-└── README.md
+index.html                → Tela inicial
+src/
+├── pages/                → Telas HTML separadas
+│   ├── login.html
+│   ├── cadastro.html
+│   ├── cursos.html          → Busca e filtros de cursos/práticas de formação
+│   ├── curso-detalhe.html   → Detalhes de um curso/prática específica
+│   ├── avisos.html          → Central de avisos e prazos
+│   ├── perfil.html          → Perfil do usuário (lido do localStorage)
+│   ├── sobre.html           → Sobre o projeto (problema, missão, ODS)
+│   └── contato.html         → Fale conosco
+├── styles/
+│   ├── variables.css        → Tokens de cor, fonte e espaçamento
+│   └── main.css             → Estilos gerais (navbar, cards, formulários, tabelas)
+└── scripts/
+    ├── storage.js           → Leitura/escrita no localStorage (usuário, cursos salvos, mensagens)
+    └── main.js               → Comportamento de interface (menu mobile)
+assets/
+└── img/                  → Imagens e ícones
+docs/
+├── prototipo/            → Capturas de tela do protótipo (9 telas)
+├── 2a_Entrega_Wi-Fi_da_Fe.docx → Documento da 2ª entrega
+└── 2a_Entrega_Wi-Fi_da_Fe.pdf  → Documento da 2ª entrega (PDF)
 ```
 
 ## Persistência de dados (sem back-end)
@@ -50,7 +48,7 @@ Os dados não saem do navegador do usuário e são perdidos se o `localStorage` 
 Protótipo interativo (Figma Make): https://www.figma.com/make/cEJHfMpYyU8SYLpI377asE/Wi-Fi-da-Fe-Prototype
 
 ## Documento da 2ª Entrega
-Modelo preenchido (protótipo, Scrum, Kanban, implementação): `docs/2a_Entrega_Wi-Fi_da_Fe.docx` — sem menções a banco de dados/back-end.
+Protótipo, planejamento Scrum, quadro Kanban e início da implementação: [`docs/2a_Entrega_Wi-Fi_da_Fe.pdf`](docs/2a_Entrega_Wi-Fi_da_Fe.pdf) (também disponível em `.docx`).
 
 ## Gestão do projeto
 - Jira: projeto "Wi-Fi da Fé - Turma 102" (Backlog + Sprint 1 + Quadro Kanban).
@@ -72,6 +70,6 @@ Modelo preenchido (protótipo, Scrum, Kanban, implementação): `docs/2a_Entrega
 - Pedro Belinassi Barbieri – RA: 26002019
 - Roberto Reis da Mata Filho – RA: 26018001
 
-## Status do Projeto
+## Status do projeto
 Em desenvolvimento — Sprint 1 (protótipo + 9 telas em HTML/CSS + persistência local).
 Próxima entrega: validação de formulários com JavaScript, painel de atualização de informações e refinamentos visuais.
