@@ -9,11 +9,12 @@
   <link rel="stylesheet" href="../styles/main.css">
 </head>
 <body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
   <header class="navbar">
     <div class="container">
       <a class="navbar__brand" href="index.html"><span class="sinal">📶</span> Wi-Fi da Fé</a>
-      <button class="navbar__toggle" id="menu-toggle" aria-expanded="false" aria-controls="navbar-menu">☰ Menu</button>
+      <button type="button" class="navbar__toggle" id="menu-toggle" aria-expanded="false" aria-controls="navbar-menu">☰ Menu</button>
       <nav aria-label="Menu principal">
         <ul class="navbar__menu" id="navbar-menu">
           <li><a href="index.html">Início</a></li>
@@ -23,39 +24,49 @@
         </ul>
       </nav>
       <div class="navbar__actions">
-        <a class="btn btn--ghost btn--sm" href="login.html" aria-current="page">Entrar</a>
+        <a class="btn btn--ghost btn--sm" href="login.html">Entrar</a>
         <a class="btn btn--primary btn--sm" href="cadastro.html">Criar conta</a>
       </div>
     </div>
   </header>
 
-  <main class="section">
+  <noscript>
+    <p class="aviso-noscript">Este site usa JavaScript para listar cursos, validar formulários e guardar seus dados no navegador. Ative o JavaScript para usar todas as funções.</p>
+  </noscript>
+
+  <main class="section" id="conteudo">
     <div class="container">
       <div class="form-card">
         <h1>Entrar na sua conta</h1>
         <p class="text-muted">Acesse informações personalizadas de cursos e práticas de formação.</p>
 
-        <form id="form-login" novalidate>
-          <label for="email">E-mail institucional</label>
-          <input type="email" id="email" name="email" placeholder="seunome@puccampinas.edu.br" required>
+        <p id="mensagem-login" class="mensagem" role="status" aria-live="polite" hidden></p>
 
-          <label for="senha">Senha</label>
-          <input type="password" id="senha" name="senha" minlength="6" required>
+        <form id="form-login" novalidate>
+            <label for="email">E-mail institucional</label>
+            <input type="email" id="email" name="email" data-regra="email" aria-describedby="erro-email" placeholder="seunome@puccampinas.edu.br" autocomplete="email">
+            <p class="erro-campo" id="erro-email"></p>
+
+            <label for="senha">Senha</label>
+            <div class="campo-senha">
+              <input type="password" id="senha" name="senha" data-regra="senha" aria-describedby="erro-senha" autocomplete="current-password">
+              <button type="button" class="btn btn--ghost btn--sm" data-alternar-senha="senha" aria-pressed="false">Mostrar</button>
+            </div>
+            <p class="erro-campo" id="erro-senha"></p>
           <p class="form-hint">Mínimo de 6 caracteres.</p>
 
-          <p id="erro-login" class="form-hint" role="alert" style="color:var(--color-danger);"></p>
+          <label class="rotulo-checkbox"><input type="checkbox" id="manter" name="manter"> Manter conectado neste navegador</label>
 
           <div class="form-actions">
             <button type="submit" class="btn btn--primary btn--block">Entrar</button>
           </div>
         </form>
-        <p class="form-hint">Login simulado neste navegador (localStorage) — protótipo sem back-end/banco de dados.</p>
+        <p class="form-hint">Login simulado neste navegador (localStorage) — protótipo sem back-end/banco de dados. A senha é validada só quanto ao formato e nunca é guardada.</p>
 
         <p class="mt-lg center">Ainda não tem conta? <a href="cadastro.html">Cadastre-se</a></p>
       </div>
     </div>
   </main>
-
   <footer class="footer">
     <div class="container">
       <address>
@@ -71,21 +82,9 @@
     </div>
   </footer>
 
-  <script src="../scripts/storage.js"></script>
+  <script src="../scripts/storage.js" defer></script>
+  <script src="../scripts/validacao.js" defer></script>
   <script src="../scripts/main.js" defer></script>
-  <script>
-    document.getElementById("form-login").addEventListener("submit", (e) => {
-      e.preventDefault();
-      const email = document.getElementById("email").value.trim();
-      const usuario = obterUsuario();
-      const erro = document.getElementById("erro-login");
-      if (usuario && usuario.email.toLowerCase() === email.toLowerCase()) {
-        erro.textContent = "";
-        window.location.href = "perfil.html";
-      } else {
-        erro.textContent = "Não encontramos uma conta com esse e-mail neste navegador. Crie uma conta primeiro.";
-      }
-    });
-  </script>
+  <script src="../scripts/login.js" defer></script>
 </body>
 </html>

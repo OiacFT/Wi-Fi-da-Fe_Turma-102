@@ -9,11 +9,12 @@
   <link rel="stylesheet" href="../styles/main.css">
 </head>
 <body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
   <header class="navbar">
     <div class="container">
       <a class="navbar__brand" href="index.html"><span class="sinal">📶</span> Wi-Fi da Fé</a>
-      <button class="navbar__toggle" id="menu-toggle" aria-expanded="false" aria-controls="navbar-menu">☰ Menu</button>
+      <button type="button" class="navbar__toggle" id="menu-toggle" aria-expanded="false" aria-controls="navbar-menu">☰ Menu</button>
       <nav aria-label="Menu principal">
         <ul class="navbar__menu" id="navbar-menu">
           <li><a href="index.html">Início</a></li>
@@ -29,7 +30,11 @@
     </div>
   </header>
 
-  <main class="section">
+  <noscript>
+    <p class="aviso-noscript">Este site usa JavaScript para listar cursos, validar formulários e guardar seus dados no navegador. Ative o JavaScript para usar todas as funções.</p>
+  </noscript>
+
+  <main class="section" id="conteudo">
     <div class="container">
       <h1>Sobre o Wi-Fi da Fé</h1>
       <p class="lead text-muted">Um projeto acadêmico criado por estudantes da PUC-Campinas para facilitar o acesso a cursos, práticas de formação e prazos importantes.</p>
@@ -64,9 +69,30 @@
         <h2>Sobre este protótipo</h2>
         <p>O Wi-Fi da Fé é desenvolvido como Projeto Integrador (PI: Desenvolvimento de Sistemas Web, Turma 102). Nesta etapa, o projeto é inteiramente front-end (HTML, CSS e JavaScript): os dados de cadastro, login e cursos salvos ficam armazenados apenas no navegador de cada visitante (localStorage), sem banco de dados ou back-end.</p>
       </section>
+
+      <section class="mt-lg">
+        <h2>Perguntas frequentes</h2>
+        <div class="acordeao">
+          <div class="acordeao__item">
+            <h3><button type="button" class="acordeao__botao" id="faq-botao-1" aria-expanded="false" aria-controls="faq-resposta-1">O Wi-Fi da Fé é um site oficial da PUC-Campinas?</button></h3>
+            <p class="acordeao__resposta" id="faq-resposta-1" role="region" aria-labelledby="faq-botao-1" hidden>Não. É um projeto acadêmico criado por estudantes na disciplina PI: Desenvolvimento de Sistemas Web. Os cursos e os prazos exibidos são dados de exemplo.</p>
+          </div>
+          <div class="acordeao__item">
+            <h3><button type="button" class="acordeao__botao" id="faq-botao-2" aria-expanded="false" aria-controls="faq-resposta-2">Onde ficam guardados os meus dados?</button></h3>
+            <p class="acordeao__resposta" id="faq-resposta-2" role="region" aria-labelledby="faq-botao-2" hidden>Somente no navegador que você está usando (localStorage e sessionStorage). Não existe servidor, banco de dados nem API: nada é enviado pela internet.</p>
+          </div>
+          <div class="acordeao__item">
+            <h3><button type="button" class="acordeao__botao" id="faq-botao-3" aria-expanded="false" aria-controls="faq-resposta-3">Por que o login aceita qualquer senha?</button></h3>
+            <p class="acordeao__resposta" id="faq-resposta-3" role="region" aria-labelledby="faq-botao-3" hidden>Porque a autenticação é uma simulação feita só no front-end. A senha é conferida apenas quanto ao formato e nunca é armazenada. Um sistema real validaria a senha em um back-end.</p>
+          </div>
+          <div class="acordeao__item">
+            <h3><button type="button" class="acordeao__botao" id="faq-botao-4" aria-expanded="false" aria-controls="faq-resposta-4">Como apago os meus dados?</button></h3>
+            <p class="acordeao__resposta" id="faq-resposta-4" role="region" aria-labelledby="faq-botao-4" hidden>Abra o Perfil e use o botão "Excluir conta e dados locais". Isso remove a conta, os cursos salvos e as mensagens deste navegador.</p>
+          </div>
+        </div>
+      </section>
     </div>
   </main>
-
   <footer class="footer">
     <div class="container">
       <address>
@@ -75,14 +101,14 @@
       </address>
       <nav aria-label="Links institucionais">
         <ul class="footer__links">
-          <li><a href="sobre.html" aria-current="page">Sobre o projeto</a></li>
+          <li><a href="sobre.html">Sobre o projeto</a></li>
           <li><a href="contato.html">Contato</a></li>
         </ul>
       </nav>
     </div>
   </footer>
 
-  <script src="../scripts/storage.js"></script>
+  <script src="../scripts/storage.js" defer></script>
   <script src="../scripts/main.js" defer></script>
 </body>
 </html>

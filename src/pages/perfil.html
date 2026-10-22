@@ -9,11 +9,12 @@
   <link rel="stylesheet" href="../styles/main.css">
 </head>
 <body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
   <header class="navbar">
     <div class="container">
       <a class="navbar__brand" href="index.html"><span class="sinal">📶</span> Wi-Fi da Fé</a>
-      <button class="navbar__toggle" id="menu-toggle" aria-expanded="false" aria-controls="navbar-menu">☰ Menu</button>
+      <button type="button" class="navbar__toggle" id="menu-toggle" aria-expanded="false" aria-controls="navbar-menu">☰ Menu</button>
       <nav aria-label="Menu principal">
         <ul class="navbar__menu" id="navbar-menu">
           <li><a href="index.html">Início</a></li>
@@ -23,28 +24,70 @@
         </ul>
       </nav>
       <div class="navbar__actions">
-        <a class="btn btn--ghost btn--sm" href="login.html">Sair</a>
+        <a class="btn btn--ghost btn--sm" href="login.html">Entrar</a>
+        <a class="btn btn--primary btn--sm" href="cadastro.html">Criar conta</a>
       </div>
     </div>
   </header>
 
-  <main class="section">
+  <noscript>
+    <p class="aviso-noscript">Este site usa JavaScript para listar cursos, validar formulários e guardar seus dados no navegador. Ative o JavaScript para usar todas as funções.</p>
+  </noscript>
+
+  <main class="section" id="conteudo">
     <div class="container">
-      <div class="perfil-layout">
+      <section class="card vazio" id="perfil-restrito" hidden>
+        <h1>Acesso restrito</h1>
+        <p class="text-muted">Para ver seu perfil é preciso estar conectado. Entre na sua conta ou crie uma nova.</p>
+        <div class="form-actions">
+          <a class="btn btn--primary" href="login.html?restrito=1">Entrar</a>
+          <a class="btn btn--ghost" href="cadastro.html">Criar conta</a>
+        </div>
+      </section>
+
+      <div class="perfil-layout" id="perfil-conteudo" hidden>
         <aside class="card">
-          <h2>Meus dados</h2>
+          <h1 class="titulo-card">Meus dados</h1>
           <p><strong>Nome:</strong> <span id="perfil-nome">—</span></p>
           <p><strong>E-mail:</strong> <span id="perfil-email">—</span></p>
           <p><strong>Curso de interesse:</strong> <span id="perfil-curso">—</span></p>
-          <button type="button" id="btn-sair" class="btn btn--ghost btn--block">Sair (limpar dados locais)</button>
+          <p><strong>Conta criada em:</strong> <span id="perfil-desde">—</span></p>
+
+          <p id="mensagem-perfil" class="mensagem" role="status" aria-live="polite" hidden></p>
+
+          <form id="form-perfil" novalidate hidden>
+            <label for="nome">Nome completo</label>
+            <input type="text" id="nome" name="nome" data-regra="nome" aria-describedby="erro-nome" autocomplete="name">
+            <p class="erro-campo" id="erro-nome"></p>
+
+            <label for="curso-interesse">Curso ou área de interesse</label>
+            <select id="curso-interesse" name="curso-interesse">
+              <option value="">Não informado</option>
+              <option>Engenharia da Computação</option>
+              <option>Administração</option>
+              <option>Psicologia</option>
+              <option>Direito</option>
+              <option>Outro</option>
+            </select>
+            <div class="form-actions">
+              <button type="submit" class="btn btn--primary btn--block">Salvar alterações</button>
+            </div>
+          </form>
+
+          <div class="acoes-perfil">
+            <button type="button" id="btn-editar" class="btn btn--ghost btn--block" aria-expanded="false" aria-controls="form-perfil">Editar dados</button>
+            <button type="button" id="btn-sair" class="btn btn--primary btn--block">Sair</button>
+            <button type="button" id="btn-excluir" class="btn btn--perigo btn--block">Excluir conta e dados locais</button>
+          </div>
         </aside>
 
         <div>
-          <section class="mt-lg" style="margin-top:0">
+          <section>
             <h2>Cursos e práticas de formação salvos</h2>
-            <p class="text-muted">Salvos apenas neste navegador (localStorage) — sem banco de dados.</p>
+            <p class="text-muted">Salvos apenas neste navegador (localStorage), sem banco de dados. Altere o status conforme o seu andamento.</p>
+            <p class="contagem" id="resumo-salvos" role="status" aria-live="polite"></p>
             <div class="tabela-wrap">
-              <table>
+              <table class="tabela--empilhavel">
                 <caption>Meus itens salvos</caption>
                 <thead>
                   <tr>
@@ -54,8 +97,7 @@
                     <th scope="col">Ação</th>
                   </tr>
                 </thead>
-                <tbody id="cursos-salvos-body">
-                </tbody>
+                <tbody id="cursos-salvos-body"></tbody>
               </table>
             </div>
           </section>
@@ -63,7 +105,6 @@
       </div>
     </div>
   </main>
-
   <footer class="footer">
     <div class="container">
       <address>
@@ -79,54 +120,9 @@
     </div>
   </footer>
 
-  <script src="../scripts/storage.js"></script>
+  <script src="../scripts/storage.js" defer></script>
+  <script src="../scripts/validacao.js" defer></script>
   <script src="../scripts/main.js" defer></script>
-  <script>
-    const usuario = obterUsuario();
-    if (!usuario) {
-      window.location.href = "login.html";
-    } else {
-      document.getElementById("perfil-nome").textContent = usuario.nome;
-      document.getElementById("perfil-email").textContent = usuario.email;
-      document.getElementById("perfil-curso").textContent = usuario.curso || "Não informado";
-    }
-
-    function renderCursosSalvos() {
-      const tbody = document.getElementById("cursos-salvos-body");
-      const cursos = obterCursosSalvos();
-      tbody.innerHTML = "";
-      if (cursos.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="4">Nenhum curso salvo ainda. Visite <a href="cursos.html">Cursos</a> e clique em "Ver detalhes".</td></tr>';
-        return;
-      }
-      cursos.forEach((curso) => {
-        const tr = document.createElement("tr");
-        const tdNome = document.createElement("td");
-        tdNome.textContent = curso.nome;
-        const tdCategoria = document.createElement("td");
-        tdCategoria.textContent = curso.categoria;
-        const tdStatus = document.createElement("td");
-        tdStatus.innerHTML = '<span class="badge badge--accent">Interesse</span>';
-        const tdAcao = document.createElement("td");
-        const btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "btn btn--ghost btn--sm";
-        btn.textContent = "Remover";
-        btn.addEventListener("click", () => {
-          removerCurso(curso.nome);
-          renderCursosSalvos();
-        });
-        tdAcao.appendChild(btn);
-        tr.append(tdNome, tdCategoria, tdStatus, tdAcao);
-        tbody.appendChild(tr);
-      });
-    }
-    renderCursosSalvos();
-
-    document.getElementById("btn-sair").addEventListener("click", () => {
-      removerUsuario();
-      window.location.href = "index.html";
-    });
-  </script>
+  <script src="../scripts/perfil.js" defer></script>
 </body>
 </html>

@@ -9,11 +9,12 @@
   <link rel="stylesheet" href="../styles/main.css">
 </head>
 <body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
   <header class="navbar">
     <div class="container">
       <a class="navbar__brand" href="index.html"><span class="sinal">📶</span> Wi-Fi da Fé</a>
-      <button class="navbar__toggle" id="menu-toggle" aria-expanded="false" aria-controls="navbar-menu">☰ Menu</button>
+      <button type="button" class="navbar__toggle" id="menu-toggle" aria-expanded="false" aria-controls="navbar-menu">☰ Menu</button>
       <nav aria-label="Menu principal">
         <ul class="navbar__menu" id="navbar-menu">
           <li><a href="index.html">Início</a></li>
@@ -29,18 +30,22 @@
     </div>
   </header>
 
-  <main class="section">
+  <noscript>
+    <p class="aviso-noscript">Este site usa JavaScript para listar cursos, validar formulários e guardar seus dados no navegador. Ative o JavaScript para usar todas as funções.</p>
+  </noscript>
+
+  <main class="section" id="conteudo">
     <div class="container">
       <div class="section__header">
         <h1>Cursos e Práticas de Formação</h1>
         <p>Use os filtros abaixo para encontrar rapidamente o que você procura.</p>
       </div>
 
-      <form class="filtros" action="#" method="get">
+      <form class="filtros" id="form-filtros" role="search" aria-label="Filtros de cursos">
         <div class="form-row">
           <div>
             <label for="busca">Buscar por nome</label>
-            <input type="text" id="busca" name="busca" placeholder="Ex.: Engenharia, Psicologia...">
+            <input type="search" id="busca" name="busca" placeholder="Ex.: Engenharia, Psicologia..." autocomplete="off">
           </div>
           <div>
             <label for="area">Área</label>
@@ -74,51 +79,20 @@
         </div>
         <div class="form-actions">
           <button type="submit" class="btn btn--primary">Filtrar</button>
-          <button type="reset" class="btn btn--ghost">Limpar filtros</button>
+          <button type="button" class="btn btn--ghost" id="btn-limpar">Limpar filtros</button>
         </div>
       </form>
 
-      <div class="grid-cards">
-        <article class="card card--curso">
-          <div class="badge-row"><span class="badge">Tecnologia</span><span class="badge badge--accent">Graduação</span></div>
-          <h3>Engenharia da Computação</h3>
-          <p class="text-muted">Carga horária: 3.600h · Período: Integral</p>
-          <a class="btn btn--ghost btn--sm" href="curso-detalhe.html">Ver detalhes</a>
-        </article>
-        <article class="card card--curso">
-          <div class="badge-row"><span class="badge">Saúde</span><span class="badge badge--accent">Prática de Formação</span></div>
-          <h3>Estágio em Psicologia Clínica</h3>
-          <p class="text-muted">Carga horária: 200h · Período: Noturno</p>
-          <a class="btn btn--ghost btn--sm" href="curso-detalhe.html">Ver detalhes</a>
-        </article>
-        <article class="card card--curso">
-          <div class="badge-row"><span class="badge">Negócios</span><span class="badge badge--accent">Graduação</span></div>
-          <h3>Administração</h3>
-          <p class="text-muted">Carga horária: 3.000h · Período: Matutino</p>
-          <a class="btn btn--ghost btn--sm" href="curso-detalhe.html">Ver detalhes</a>
-        </article>
-        <article class="card card--curso">
-          <div class="badge-row"><span class="badge">Humanas</span><span class="badge badge--accent">Extensão</span></div>
-          <h3>Prática de Formação em Direito Comunitário</h3>
-          <p class="text-muted">Carga horária: 120h · Período: EAD</p>
-          <a class="btn btn--ghost btn--sm" href="curso-detalhe.html">Ver detalhes</a>
-        </article>
-        <article class="card card--curso">
-          <div class="badge-row"><span class="badge">Tecnologia</span><span class="badge badge--accent">Graduação</span></div>
-          <h3>Sistemas de Informação</h3>
-          <p class="text-muted">Carga horária: 3.200h · Período: Noturno</p>
-          <a class="btn btn--ghost btn--sm" href="curso-detalhe.html">Ver detalhes</a>
-        </article>
-        <article class="card card--curso">
-          <div class="badge-row"><span class="badge">Saúde</span><span class="badge badge--accent">Graduação</span></div>
-          <h3>Psicologia</h3>
-          <p class="text-muted">Carga horária: 4.000h · Período: Matutino</p>
-          <a class="btn btn--ghost btn--sm" href="curso-detalhe.html">Ver detalhes</a>
-        </article>
+      <p class="contagem" id="contagem-cursos" role="status" aria-live="polite"></p>
+
+      <div class="grid-cards" id="lista-cursos"></div>
+
+      <div class="card vazio" id="sem-resultados" hidden>
+        <h2>Nenhum curso encontrado</h2>
+        <p class="text-muted">Tente outro nome ou clique em "Limpar filtros" para ver todos os cursos.</p>
       </div>
     </div>
   </main>
-
   <footer class="footer">
     <div class="container">
       <address>
@@ -134,7 +108,9 @@
     </div>
   </footer>
 
-  <script src="../scripts/storage.js"></script>
+  <script src="../scripts/dados.js" defer></script>
+  <script src="../scripts/storage.js" defer></script>
   <script src="../scripts/main.js" defer></script>
+  <script src="../scripts/cursos.js" defer></script>
 </body>
 </html>

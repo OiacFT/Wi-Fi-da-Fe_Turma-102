@@ -9,11 +9,12 @@
   <link rel="stylesheet" href="../styles/main.css">
 </head>
 <body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
   <header class="navbar">
     <div class="container">
       <a class="navbar__brand" href="index.html"><span class="sinal">📶</span> Wi-Fi da Fé</a>
-      <button class="navbar__toggle" id="menu-toggle" aria-expanded="false" aria-controls="navbar-menu">☰ Menu</button>
+      <button type="button" class="navbar__toggle" id="menu-toggle" aria-expanded="false" aria-controls="navbar-menu">☰ Menu</button>
       <nav aria-label="Menu principal">
         <ul class="navbar__menu" id="navbar-menu">
           <li><a href="index.html">Início</a></li>
@@ -29,15 +30,49 @@
     </div>
   </header>
 
-  <main class="section">
+  <noscript>
+    <p class="aviso-noscript">Este site usa JavaScript para listar cursos, validar formulários e guardar seus dados no navegador. Ative o JavaScript para usar todas as funções.</p>
+  </noscript>
+
+  <main class="section" id="conteudo">
     <div class="container">
       <div class="section__header">
         <h1>Central de Avisos e Prazos</h1>
         <p>Todos os prazos importantes de cursos e práticas de formação, em um só lugar.</p>
       </div>
 
+      <form class="filtros" id="form-avisos" aria-label="Filtros de avisos">
+        <div class="form-row">
+          <div>
+            <label for="categoria">Categoria</label>
+            <select id="categoria" name="categoria">
+              <option value="">Todas</option>
+              <option>Graduação</option>
+              <option>Prática de Formação</option>
+              <option>Extensão</option>
+            </select>
+          </div>
+          <div>
+            <label for="situacao">Status</label>
+            <select id="situacao" name="situacao">
+              <option value="">Todos</option>
+              <option value="urgente">Urgente (até 3 dias)</option>
+              <option value="breve">Em breve (até 14 dias)</option>
+              <option value="emdia">Em dia</option>
+              <option value="encerrado">Encerrado</option>
+            </select>
+          </div>
+        </div>
+        <label class="rotulo-checkbox"><input type="checkbox" id="ocultar-lidos" name="ocultar-lidos"> Ocultar avisos já lidos</label>
+        <div class="form-actions">
+          <button type="button" class="btn btn--ghost" id="btn-limpar-avisos">Limpar filtros</button>
+        </div>
+      </form>
+
+      <p class="contagem" id="resumo-avisos" role="status" aria-live="polite"></p>
+
       <div class="tabela-wrap">
-        <table>
+        <table class="tabela--empilhavel">
           <caption>Prazos e avisos ativos</caption>
           <thead>
             <tr>
@@ -45,39 +80,25 @@
               <th scope="col">Aviso</th>
               <th scope="col">Categoria</th>
               <th scope="col">Status</th>
+              <th scope="col">Ação</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td><time datetime="2026-09-26">26/09</time></td>
-              <td>Encerramento de inscrições — Estágio em Psicologia Clínica</td>
-              <td>Prática de Formação</td>
-              <td><span class="badge badge--danger">Urgente</span></td>
-            </tr>
-            <tr>
-              <td><time datetime="2026-10-05">05/10</time></td>
-              <td>Matrícula — Engenharia da Computação</td>
-              <td>Graduação</td>
-              <td><span class="badge badge--success">Em dia</span></td>
-            </tr>
-            <tr>
-              <td><time datetime="2026-10-10">10/10</time></td>
-              <td>Entrega de documentos — Prática em Direito Comunitário</td>
-              <td>Extensão</td>
-              <td><span class="badge badge--success">Em dia</span></td>
-            </tr>
-          </tbody>
+          <tbody id="avisos-corpo"></tbody>
           <tfoot>
             <tr>
               <th scope="row">Total de avisos ativos</th>
-              <td colspan="3">3</td>
+              <td colspan="4" id="total-ativos">0</td>
             </tr>
           </tfoot>
         </table>
       </div>
+
+      <div class="card vazio" id="avisos-vazio" hidden>
+        <h2>Nenhum aviso com esses filtros</h2>
+        <p class="text-muted">Altere a categoria ou o status, ou clique em "Limpar filtros".</p>
+      </div>
     </div>
   </main>
-
   <footer class="footer">
     <div class="container">
       <address>
@@ -93,7 +114,9 @@
     </div>
   </footer>
 
-  <script src="../scripts/storage.js"></script>
+  <script src="../scripts/dados.js" defer></script>
+  <script src="../scripts/storage.js" defer></script>
   <script src="../scripts/main.js" defer></script>
+  <script src="../scripts/avisos.js" defer></script>
 </body>
 </html>

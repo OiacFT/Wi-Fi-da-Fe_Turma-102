@@ -9,11 +9,12 @@
   <link rel="stylesheet" href="../styles/main.css">
 </head>
 <body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
   <header class="navbar">
     <div class="container">
       <a class="navbar__brand" href="index.html"><span class="sinal">📶</span> Wi-Fi da Fé</a>
-      <button class="navbar__toggle" id="menu-toggle" aria-expanded="false" aria-controls="navbar-menu">☰ Menu</button>
+      <button type="button" class="navbar__toggle" id="menu-toggle" aria-expanded="false" aria-controls="navbar-menu">☰ Menu</button>
       <nav aria-label="Menu principal">
         <ul class="navbar__menu" id="navbar-menu">
           <li><a href="index.html">Início</a></li>
@@ -29,19 +30,27 @@
     </div>
   </header>
 
-  <main class="section">
+  <noscript>
+    <p class="aviso-noscript">Este site usa JavaScript para listar cursos, validar formulários e guardar seus dados no navegador. Ative o JavaScript para usar todas as funções.</p>
+  </noscript>
+
+  <main class="section" id="conteudo">
     <div class="container">
       <div class="form-card">
         <h1>Fale conosco</h1>
         <p class="text-muted">Dúvidas, sugestões ou parcerias? Escreva para a equipe do Wi-Fi da Fé.</p>
         <p><strong>E-mail:</strong> <a href="mailto:wifidafe@puc-campinas.edu.br">wifidafe@puc-campinas.edu.br</a></p>
 
-        <form id="form-contato" novalidate>
-          <label for="nome">Nome</label>
-          <input type="text" id="nome" name="nome" required>
+        <p id="mensagem-contato" class="mensagem" role="status" aria-live="polite" hidden></p>
 
-          <label for="email">E-mail</label>
-          <input type="email" id="email" name="email" required>
+        <form id="form-contato" novalidate>
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" data-regra="nome" aria-describedby="erro-nome" autocomplete="name">
+            <p class="erro-campo" id="erro-nome"></p>
+
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" data-regra="email" aria-describedby="erro-email" autocomplete="email">
+            <p class="erro-campo" id="erro-email"></p>
 
           <label for="assunto">Assunto</label>
           <select id="assunto" name="assunto">
@@ -52,18 +61,19 @@
           </select>
 
           <label for="mensagem">Mensagem</label>
-          <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+          <textarea id="mensagem" name="mensagem" rows="5" maxlength="500" data-regra="mensagem" aria-describedby="erro-mensagem contador-mensagem"></textarea>
+          <p class="erro-campo" id="erro-mensagem"></p>
+          <p class="contador" id="contador-mensagem">0/500 caracteres</p>
 
           <div class="form-actions">
             <button type="submit" class="btn btn--primary btn--block">Enviar mensagem</button>
           </div>
         </form>
-        <p id="msg-contato" class="form-hint" role="status"></p>
+        <p class="form-hint" id="total-enviadas"></p>
         <p class="form-hint">Este é um protótipo sem back-end: a mensagem fica registrada apenas neste navegador (localStorage). Para contato real, use o e-mail acima.</p>
       </div>
     </div>
   </main>
-
   <footer class="footer">
     <div class="container">
       <address>
@@ -73,27 +83,15 @@
       <nav aria-label="Links institucionais">
         <ul class="footer__links">
           <li><a href="sobre.html">Sobre o projeto</a></li>
-          <li><a href="contato.html" aria-current="page">Contato</a></li>
+          <li><a href="contato.html">Contato</a></li>
         </ul>
       </nav>
     </div>
   </footer>
 
-  <script src="../scripts/storage.js"></script>
+  <script src="../scripts/storage.js" defer></script>
+  <script src="../scripts/validacao.js" defer></script>
   <script src="../scripts/main.js" defer></script>
-  <script>
-    document.getElementById("form-contato").addEventListener("submit", (e) => {
-      e.preventDefault();
-      salvarMensagemContato({
-        nome: document.getElementById("nome").value.trim(),
-        email: document.getElementById("email").value.trim(),
-        assunto: document.getElementById("assunto").value,
-        mensagem: document.getElementById("mensagem").value.trim(),
-      });
-      document.getElementById("msg-contato").textContent =
-        "Mensagem registrada! Nossa equipe responderá em breve pelo e-mail informado.";
-      e.target.reset();
-    });
-  </script>
+  <script src="../scripts/contato.js" defer></script>
 </body>
 </html>

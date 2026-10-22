@@ -9,11 +9,12 @@
   <link rel="stylesheet" href="../styles/main.css">
 </head>
 <body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
   <header class="navbar">
     <div class="container">
       <a class="navbar__brand" href="index.html"><span class="sinal">📶</span> Wi-Fi da Fé</a>
-      <button class="navbar__toggle" id="menu-toggle" aria-expanded="false" aria-controls="navbar-menu">☰ Menu</button>
+      <button type="button" class="navbar__toggle" id="menu-toggle" aria-expanded="false" aria-controls="navbar-menu">☰ Menu</button>
       <nav aria-label="Menu principal">
         <ul class="navbar__menu" id="navbar-menu">
           <li><a href="index.html">Início</a></li>
@@ -29,59 +30,68 @@
     </div>
   </header>
 
-  <main class="section">
+  <noscript>
+    <p class="aviso-noscript">Este site usa JavaScript para listar cursos, validar formulários e guardar seus dados no navegador. Ative o JavaScript para usar todas as funções.</p>
+  </noscript>
+
+  <main class="section" id="conteudo">
     <div class="container">
       <p><a href="cursos.html">← Voltar para Cursos</a></p>
 
-      <div class="badge-row" style="margin-bottom: var(--spacing-sm);">
-        <span class="badge">Tecnologia</span>
-        <span class="badge badge--accent">Graduação</span>
+      <div id="conteudo-curso">
+        <div class="badge-row">
+          <span class="badge" id="curso-area"></span>
+          <span class="badge badge--accent" id="curso-modalidade"></span>
+        </div>
+        <h1 id="curso-titulo"></h1>
+        <p class="lead text-muted" id="curso-resumo"></p>
+
+        <div class="tabela-wrap mt-lg">
+          <table>
+            <caption>Informações do curso</caption>
+            <thead>
+              <tr>
+                <th scope="col">Carga Horária</th>
+                <th scope="col">Período</th>
+                <th scope="col">Duração</th>
+                <th scope="col">Responsável</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td id="info-carga"></td>
+                <td id="info-periodo"></td>
+                <td id="info-duracao"></td>
+                <td id="info-responsavel"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="detalhe-layout mt-lg">
+          <section>
+            <h2>Conteúdo programático (resumo)</h2>
+            <ul id="curso-conteudo"></ul>
+
+            <h2 class="mt-lg">Prazos deste curso</h2>
+            <ul class="lista-prazos" id="curso-prazos"></ul>
+          </section>
+
+          <section class="card">
+            <h2>Interessado?</h2>
+            <p class="text-muted">Salve este curso no seu perfil (armazenado neste navegador) para acompanhar prazos de inscrição e matrícula.</p>
+            <button type="button" id="btn-salvar-interesse" class="btn btn--primary" aria-pressed="false">Salvar interesse</button>
+            <p id="msg-salvar" class="mensagem" role="status" aria-live="polite" hidden></p>
+          </section>
+        </div>
       </div>
-      <h1>Engenharia da Computação</h1>
-      <p class="lead text-muted">Formação para atuar no desenvolvimento de software, hardware e sistemas inteligentes, unindo teoria sólida e prática de laboratório.</p>
 
-      <div class="tabela-wrap mt-lg">
-        <table>
-          <caption>Informações do curso</caption>
-          <thead>
-            <tr>
-              <th scope="col">Carga Horária</th>
-              <th scope="col">Período</th>
-              <th scope="col">Duração</th>
-              <th scope="col">Responsável</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>3.600 horas</td>
-              <td>Integral</td>
-              <td>5 anos</td>
-              <td>Prof. Dr. Fernando Silveira</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="card vazio" id="curso-nao-encontrado" hidden>
+        <h1>Curso não encontrado</h1>
+        <p class="text-muted">O endereço não corresponde a nenhum curso da lista. Volte para <a href="cursos.html">Cursos</a> e escolha um item.</p>
       </div>
-
-      <section class="mt-lg">
-        <h2>Conteúdo programático (resumo)</h2>
-        <ul>
-          <li>Algoritmos e Estruturas de Dados</li>
-          <li>Desenvolvimento Web e Mobile</li>
-          <li>Banco de Dados</li>
-          <li>Redes de Computadores</li>
-          <li>Inteligência Artificial</li>
-        </ul>
-      </section>
-
-      <section class="mt-lg card" style="max-width:480px">
-        <h2>Interessado?</h2>
-        <p class="text-muted">Salve este curso no seu perfil (armazenado neste navegador) para acompanhar prazos de inscrição e matrícula.</p>
-        <button type="button" id="btn-salvar-interesse" class="btn btn--primary">Salvar interesse</button>
-        <p id="msg-salvar" class="form-hint" role="status"></p>
-      </section>
     </div>
   </main>
-
   <footer class="footer">
     <div class="container">
       <address>
@@ -97,14 +107,10 @@
     </div>
   </footer>
 
-  <script src="../scripts/storage.js"></script>
+  <script src="../scripts/dados.js" defer></script>
+  <script src="../scripts/storage.js" defer></script>
+  <script src="../scripts/validacao.js" defer></script>
   <script src="../scripts/main.js" defer></script>
-  <script>
-    document.getElementById("btn-salvar-interesse").addEventListener("click", () => {
-      salvarCurso({ nome: "Engenharia da Computação", categoria: "Graduação" });
-      document.getElementById("msg-salvar").textContent =
-        "Curso salvo no seu perfil (neste navegador). Veja em Perfil > Cursos e práticas de formação salvos.";
-    });
-  </script>
+  <script src="../scripts/curso-detalhe.js" defer></script>
 </body>
 </html>

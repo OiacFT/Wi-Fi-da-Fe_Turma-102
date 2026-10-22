@@ -9,15 +9,12 @@
   <link rel="stylesheet" href="../styles/main.css">
 </head>
 <body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
   <header class="navbar">
     <div class="container">
-      <a class="navbar__brand" href="index.html">
-        <span class="sinal">📶</span> Wi-Fi da Fé
-      </a>
-      <button class="navbar__toggle" id="menu-toggle" aria-expanded="false" aria-controls="navbar-menu">
-        ☰ Menu
-      </button>
+      <a class="navbar__brand" href="index.html"><span class="sinal">📶</span> Wi-Fi da Fé</a>
+      <button type="button" class="navbar__toggle" id="menu-toggle" aria-expanded="false" aria-controls="navbar-menu">☰ Menu</button>
       <nav aria-label="Menu principal">
         <ul class="navbar__menu" id="navbar-menu">
           <li><a href="index.html" aria-current="page">Início</a></li>
@@ -33,14 +30,18 @@
     </div>
   </header>
 
-  <main>
+  <noscript>
+    <p class="aviso-noscript">Este site usa JavaScript para listar cursos, validar formulários e guardar seus dados no navegador. Ative o JavaScript para usar todas as funções.</p>
+  </noscript>
+
+  <main id="conteudo">
     <section class="hero">
       <div class="container">
         <h1>Todas as informações de cursos e práticas de formação da PUC-Campinas, em um só lugar.</h1>
         <p class="lead">Chega de perder prazo por causa de e-mail perdido ou aviso de última hora. O Wi-Fi da Fé reúne cursos, práticas de formação e prazos em uma plataforma simples e sempre atualizada.</p>
         <div class="hero__actions">
           <a class="btn btn--accent" href="cursos.html">Ver cursos disponíveis</a>
-          <a class="btn btn--ghost" style="color:#fff;border-color:#fff" href="cadastro.html">Criar minha conta</a>
+          <a class="btn btn--ghost btn--hero" href="cadastro.html">Criar minha conta</a>
         </div>
       </div>
     </section>
@@ -68,41 +69,14 @@
       </div>
     </section>
 
-    <section class="section" style="background:var(--color-surface); border-top:1px solid var(--color-border); border-bottom:1px solid var(--color-border);">
+    <section class="section secao-destaque">
       <div class="container">
         <div class="section__header">
           <h2>Cursos em destaque</h2>
           <p>Uma amostra do que você encontra na plataforma.</p>
         </div>
-        <div class="grid-cards">
-          <article class="card card--curso">
-            <div class="badge-row">
-              <span class="badge">Tecnologia</span>
-              <span class="badge badge--accent">Graduação</span>
-            </div>
-            <h3>Engenharia da Computação</h3>
-            <p class="text-muted">Carga horária: 3.600h · Período: Integral</p>
-            <a class="btn btn--ghost btn--sm" href="curso-detalhe.html">Ver detalhes</a>
-          </article>
-          <article class="card card--curso">
-            <div class="badge-row">
-              <span class="badge">Saúde</span>
-              <span class="badge badge--accent">Prática de Formação</span>
-            </div>
-            <h3>Estágio em Psicologia Clínica</h3>
-            <p class="text-muted">Carga horária: 200h · Período: Noturno</p>
-            <a class="btn btn--ghost btn--sm" href="curso-detalhe.html">Ver detalhes</a>
-          </article>
-          <article class="card card--curso">
-            <div class="badge-row">
-              <span class="badge">Negócios</span>
-              <span class="badge badge--accent">Graduação</span>
-            </div>
-            <h3>Administração</h3>
-            <p class="text-muted">Carga horária: 3.000h · Período: Matutino</p>
-            <a class="btn btn--ghost btn--sm" href="curso-detalhe.html">Ver detalhes</a>
-          </article>
-        </div>
+        <div class="grid-cards" id="destaques"></div>
+        <p class="mt-lg"><a href="cursos.html">Ver todos os cursos →</a></p>
       </div>
     </section>
 
@@ -112,23 +86,11 @@
           <h2>Próximos prazos</h2>
           <p>Um resumo do que está vencendo em breve — veja tudo na Central de Avisos.</p>
         </div>
-        <div class="grid-cards">
-          <article class="card">
-            <span class="badge badge--danger">Vence em 3 dias</span>
-            <h3>Inscrições — Estágio em Psicologia Clínica</h3>
-            <p class="text-muted">Encerra em 26/09</p>
-          </article>
-          <article class="card">
-            <span class="badge badge--success">Vence em 12 dias</span>
-            <h3>Matrícula — Engenharia da Computação</h3>
-            <p class="text-muted">Encerra em 05/10</p>
-          </article>
-        </div>
+        <div class="grid-cards" id="proximos-prazos"></div>
         <p class="mt-lg"><a href="avisos.html">Ver todos os avisos e prazos →</a></p>
       </div>
     </section>
   </main>
-
   <footer class="footer">
     <div class="container">
       <address>
@@ -141,11 +103,12 @@
           <li><a href="contato.html">Contato</a></li>
         </ul>
       </nav>
-      <p>ODS 4 — Educação de Qualidade · ODS 9 — Indústria, Inovação e Infraestrutura</p>
     </div>
   </footer>
 
-  <script src="../scripts/storage.js"></script>
+  <script src="../scripts/dados.js" defer></script>
+  <script src="../scripts/storage.js" defer></script>
   <script src="../scripts/main.js" defer></script>
+  <script src="../scripts/home.js" defer></script>
 </body>
 </html>

@@ -347,3 +347,185 @@ tfoot td, tfoot th { font-weight: 700; background: #f8fafc; }
 .text-muted { color: var(--color-text-muted); }
 .mt-lg { margin-top: var(--spacing-lg); }
 .center { text-align: center; }
+
+/* ==========================================================================
+   3ª Entrega — interações, validação e responsividade
+   ========================================================================== */
+
+[hidden] { display: none !important; }
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 8px;
+  background: var(--color-primary-dark);
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  z-index: 20;
+}
+.skip-link:focus { left: 8px; }
+
+.aviso-noscript {
+  margin: 0;
+  padding: var(--spacing-md);
+  background: var(--color-danger-bg);
+  color: var(--color-danger);
+  text-align: center;
+  font-weight: 600;
+}
+
+.lead { font-size: 1.05rem; max-width: 70ch; }
+.badge--neutro { background: #e2e8f0; color: var(--color-text-muted); }
+.btn--hero { color: #fff; border-color: #fff; }
+.btn--hero:hover { background: rgba(255, 255, 255, 0.15); }
+.btn--perigo { background: transparent; color: var(--color-danger); border: 1px solid var(--color-danger); }
+.btn--perigo:hover { background: var(--color-danger-bg); }
+.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.secao-destaque {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Formulários: erros por campo, estados e mensagens gerais */
+.erro-campo {
+  min-height: 1.2em;
+  margin: -2px 0 var(--spacing-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-danger);
+}
+.erro-campo:not(:empty)::before { content: "✖ "; }
+
+input.campo--erro, select.campo--erro, textarea.campo--erro {
+  border-color: var(--color-danger);
+  background: var(--color-danger-bg);
+}
+input.campo--ok, textarea.campo--ok { border-color: var(--color-success); }
+
+.mensagem {
+  margin: 0 0 var(--spacing-md);
+  padding: 10px 14px;
+  border: 1px solid;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+.mensagem--erro { color: var(--color-danger); background: var(--color-danger-bg); border-color: var(--color-danger); }
+.mensagem--erro::before { content: "✖ "; }
+.mensagem--sucesso { color: var(--color-success); background: var(--color-success-bg); border-color: var(--color-success); }
+.mensagem--sucesso::before { content: "✔ "; }
+.mensagem--info { color: var(--color-primary-dark); background: #eef2ff; border-color: var(--color-primary-light); }
+.mensagem--info::before { content: "ℹ "; }
+
+.rotulo-checkbox {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-weight: 500;
+}
+.rotulo-checkbox input { width: auto; margin: 0; }
+
+.campo-senha { display: flex; gap: var(--spacing-sm); align-items: flex-start; }
+.campo-senha input { flex: 1; }
+.campo-senha .btn { margin-top: 1px; min-width: 84px; padding: 10px 12px; }
+
+.forca-senha { min-height: 1.2em; margin: -4px 0 var(--spacing-sm); font-size: 0.85rem; font-weight: 700; }
+.forca-senha--fraca { color: var(--color-danger); }
+.forca-senha--media { color: var(--color-accent-dark); }
+.forca-senha--forte { color: var(--color-success); }
+
+.contador { margin: -4px 0 var(--spacing-sm); font-size: 0.85rem; color: var(--color-text-muted); text-align: right; }
+.contador--alerta { color: var(--color-accent-dark); font-weight: 700; }
+
+.contagem { margin: 0 0 var(--spacing-md); font-weight: 600; color: var(--color-text-muted); }
+
+.vazio { text-align: center; max-width: 520px; margin: var(--spacing-lg) auto; }
+.vazio .form-actions { justify-content: center; }
+
+/* Detalhes do curso */
+.badge-row { display: flex; gap: var(--spacing-xs); flex-wrap: wrap; margin-bottom: var(--spacing-sm); }
+.detalhe-layout { display: grid; grid-template-columns: 1fr; gap: var(--spacing-lg); }
+.lista-prazos { list-style: none; margin: 0; padding: 0; }
+.lista-prazos li { margin-bottom: var(--spacing-sm); }
+#msg-salvar { margin-top: var(--spacing-md); }
+
+@media (min-width: 860px) {
+  .detalhe-layout { grid-template-columns: 1fr 340px; align-items: start; }
+}
+
+/* Perfil */
+.titulo-card { font-size: 1.4rem; }
+.acoes-perfil { display: grid; gap: var(--spacing-sm); margin-top: var(--spacing-md); }
+.select-status { margin: 0; padding: 6px 8px; width: auto; min-width: 160px; }
+#form-perfil { margin: var(--spacing-md) 0; }
+
+/* Avisos e tabelas */
+.linha--lida td { opacity: 0.6; }
+.linha--lida td:last-child { opacity: 1; }
+
+@media (max-width: 640px) {
+  /* Tabelas empilhadas: cada linha vira um cartão e o rótulo vem de data-rotulo */
+  .tabela--empilhavel { min-width: 0; }
+  .tabela--empilhavel thead {
+    position: absolute;
+    left: -9999px;
+  }
+  .tabela--empilhavel tr {
+    display: block;
+    padding: var(--spacing-sm) 0;
+    border-bottom: 2px solid var(--color-border);
+  }
+  .tabela--empilhavel td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-md);
+    border-bottom: none;
+    padding: 6px var(--spacing-md);
+    text-align: right;
+  }
+  .tabela--empilhavel td::before {
+    content: attr(data-rotulo);
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    text-align: left;
+  }
+  .tabela--empilhavel td[colspan] { display: block; text-align: left; }
+  .tabela--empilhavel td[colspan]::before { content: none; }
+  .tabela--empilhavel caption { display: block; }
+}
+
+/* Acordeão (FAQ) */
+.acordeao__item { border: 1px solid var(--color-border); border-radius: var(--radius-sm); margin-bottom: var(--spacing-sm); background: var(--color-surface); }
+.acordeao__item h3 { margin: 0; }
+.acordeao__botao {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-md);
+  background: transparent;
+  border: none;
+  padding: var(--spacing-md);
+  font: inherit;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  text-align: left;
+  cursor: pointer;
+}
+.acordeao__botao::after { content: "+"; font-size: 1.3rem; line-height: 1; }
+.acordeao__botao[aria-expanded="true"]::after { content: "−"; }
+.acordeao__resposta { margin: 0; padding: 0 var(--spacing-md) var(--spacing-md); color: var(--color-text-muted); }
+
+/* Telas pequenas: botões do hero e filtros ocupam a largura toda */
+@media (max-width: 480px) {
+  .hero__actions .btn, .filtros .form-actions .btn { flex: 1 1 100%; }
+  .navbar__actions .btn { padding: 6px 10px; }
+  .footer__links { flex-wrap: wrap; }
+}
+
+/* Botões de ação dentro das tabelas não quebram em duas linhas */
+.tabela--empilhavel .btn { white-space: nowrap; }
