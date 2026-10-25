@@ -1,6 +1,6 @@
 // Wi-Fi da Fé — detalhes do curso. O curso exibido vem do parâmetro ?id= da URL e dos dados simulados.
 const parametros = new URLSearchParams(window.location.search);
-const cursoAtual = CURSOS.find((curso) => curso.id === parametros.get("id"));
+const cursoAtual = obterCursos().find((curso) => curso.id === parametros.get("id"));
 const conteudoCurso = document.getElementById("conteudo-curso");
 const cursoNaoEncontrado = document.getElementById("curso-nao-encontrado");
 
@@ -16,8 +16,8 @@ function desenharDetalhes(curso) {
   document.getElementById("info-responsavel").textContent = curso.responsavel;
   document.getElementById("curso-conteudo").replaceChildren(...curso.conteudo.map((item) => criarElemento("li", "", item)));
 
-  // Prazos ligados a este curso (filtrados em AVISOS pelo cursoId)
-  const prazos = AVISOS.filter((aviso) => aviso.cursoId === curso.id);
+  // Prazos ligados a este curso (filtrados pelo cursoId)
+  const prazos = obterAvisos().filter((aviso) => aviso.cursoId === curso.id);
   const listaPrazos = document.getElementById("curso-prazos");
   if (prazos.length === 0) {
     listaPrazos.append(criarElemento("li", "text-muted", "Nenhum prazo cadastrado para este curso."));

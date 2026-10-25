@@ -34,6 +34,28 @@ const REGRAS = {
     return "";
   },
   termos: (valor, campo) => (campo.checked ? "" : "Você precisa aceitar os termos de uso."),
+  // Regras do painel de responsáveis (cursos e avisos)
+  nomecurso: (valor) => {
+    const texto = valor.trim();
+    if (texto === "") return "Informe o nome do curso ou da prática.";
+    if (texto.length < 3) return "O nome precisa ter pelo menos 3 caracteres.";
+    return "";
+  },
+  titulo: (valor) => {
+    const texto = valor.trim();
+    if (texto === "") return "Informe o título do aviso.";
+    if (texto.length < 5) return "O título precisa ter pelo menos 5 caracteres.";
+    return "";
+  },
+  obrigatorio: (valor) => (valor.trim() === "" ? "Preencha este campo." : ""),
+  resumo: (valor) => {
+    const texto = valor.trim();
+    if (texto === "") return "Escreva uma descrição curta do curso.";
+    if (texto.length < 10) return "A descrição precisa ter pelo menos 10 caracteres.";
+    return "";
+  },
+  conteudo: (valor) => (valor.split("\n").some((linha) => linha.trim() !== "") ? "" : "Informe pelo menos um item de conteúdo."),
+  data: (valor) => (valor === "" ? "Escolha a data do prazo." : ""),
 };
 
 // Mostra (ou limpa) o erro de um campo. Devolve true quando o campo é válido.

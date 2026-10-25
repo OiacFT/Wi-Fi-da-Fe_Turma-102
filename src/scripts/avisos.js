@@ -1,5 +1,5 @@
 // Wi-Fi da Fé — Central de avisos e prazos.
-// A tabela é montada a partir de AVISOS. O status de cada linha é calculado pela data, os filtros
+// A tabela é montada a partir dos avisos (dados de exemplo ou os alterados no painel de responsáveis). O status de cada linha é calculado pela data, os filtros
 // funcionam em tempo real e "Marcar como lido" fica salvo no localStorage.
 const formularioAvisos = document.getElementById("form-avisos");
 const corpoAvisos = document.getElementById("avisos-corpo");
@@ -44,7 +44,8 @@ function desenharAvisos() {
   const ocultarLidos = formularioAvisos.elements["ocultar-lidos"].checked;
   const lidos = obterAvisosLidos();
 
-  const exibidos = AVISOS.filter(
+  const todos = obterAvisos();
+  const exibidos = todos.filter(
     (aviso) =>
       (categoria === "" || aviso.categoria === categoria) &&
       (situacao === "" || statusDoAviso(aviso.data).chave === situacao) &&
@@ -59,7 +60,7 @@ function desenharAvisos() {
 
   const urgentes = exibidos.filter((aviso) => statusDoAviso(aviso.data).chave === "urgente").length;
   resumoAvisos.textContent =
-    "Mostrando " + exibidos.length + " de " + AVISOS.length + " avisos · " + urgentes + (urgentes === 1 ? " urgente" : " urgentes");
+    "Mostrando " + exibidos.length + " de " + todos.length + " avisos · " + urgentes + (urgentes === 1 ? " urgente" : " urgentes");
 }
 
 formularioAvisos.addEventListener("input", desenharAvisos);

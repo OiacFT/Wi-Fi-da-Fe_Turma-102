@@ -11,6 +11,8 @@ function desenharDadosDoUsuario(usuario) {
   document.getElementById("perfil-nome").textContent = usuario.nome;
   document.getElementById("perfil-email").textContent = usuario.email;
   document.getElementById("perfil-curso").textContent = usuario.curso || "Não informado";
+  document.getElementById("perfil-tipo").textContent = ehResponsavel(usuario) ? "Responsável por cursos e prazos" : "Estudante";
+  document.getElementById("link-painel").hidden = !ehResponsavel(usuario);
   document.getElementById("perfil-desde").textContent = usuario.criadoEm ? new Date(usuario.criadoEm).toLocaleDateString("pt-BR") : "—";
 }
 

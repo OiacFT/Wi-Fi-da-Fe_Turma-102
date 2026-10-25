@@ -35,6 +35,7 @@ formularioCadastro.addEventListener("submit", (evento) => {
     nome: formularioCadastro.elements.nome.value.trim().replace(/\s+/g, " "),
     email: email,
     curso: formularioCadastro.elements["curso-interesse"].value,
+    tipo: formularioCadastro.elements.tipo.value, // "estudante" ou "responsavel"
     criadoEm: new Date().toISOString(),
   });
   iniciarSessao(email, false);

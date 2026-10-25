@@ -9,6 +9,8 @@ const WIFIDAFE_KEYS = {
   avisosLidos: "wifidafe_avisos_lidos",
   sessao: "wifidafe_sessao",
   filtrosCursos: "wifidafe_filtros_cursos",
+  cursos: "wifidafe_cursos",
+  avisos: "wifidafe_avisos",
 };
 
 // Lê e converte um JSON do storage; se estiver ausente ou corrompido, devolve o valor padrão.
@@ -92,6 +94,34 @@ function atualizarStatusCurso(id, status) {
   const cursos = obterCursosSalvos().map((c) => (c.id === id ? { ...c, status: status } : c));
   gravarCursosSalvos(cursos);
   return cursos;
+}
+
+// ----- Cursos e avisos (dados.js traz os exemplos; o painel de responsáveis grava as alterações) -----
+// Enquanto ninguém alterar nada pelo painel, as telas usam os dados de exemplo de dados.js.
+function copiaProfunda(valor) {
+  return JSON.parse(JSON.stringify(valor));
+}
+
+function obterCursos() {
+  return lerJSON(localStorage, WIFIDAFE_KEYS.cursos, null) || copiaProfunda(CURSOS);
+}
+
+function gravarCursos(lista) {
+  localStorage.setItem(WIFIDAFE_KEYS.cursos, JSON.stringify(lista));
+}
+
+function obterAvisos() {
+  return lerJSON(localStorage, WIFIDAFE_KEYS.avisos, null) || copiaProfunda(AVISOS);
+}
+
+function gravarAvisos(lista) {
+  localStorage.setItem(WIFIDAFE_KEYS.avisos, JSON.stringify(lista));
+}
+
+// Volta cursos e avisos para os dados de exemplo (apaga só o que o painel gravou).
+function restaurarDadosExemplo() {
+  localStorage.removeItem(WIFIDAFE_KEYS.cursos);
+  localStorage.removeItem(WIFIDAFE_KEYS.avisos);
 }
 
 // ----- Mensagens do formulário de contato -----

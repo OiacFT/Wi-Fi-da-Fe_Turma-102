@@ -1,5 +1,5 @@
 // Wi-Fi da Fé — lista de cursos com busca e filtros em tempo real.
-// Os cartões são criados pelo JavaScript a partir de CURSOS (dados.js). Os filtros escolhidos ficam no
+// Os cartões são criados pelo JavaScript a partir da lista de cursos (dados.js ou o que foi alterado no painel de responsáveis). Os filtros escolhidos ficam no
 // sessionStorage, então voltar de "Ver detalhes" mantém a busca feita.
 const formularioFiltros = document.getElementById("form-filtros");
 const listaCursos = document.getElementById("lista-cursos");
@@ -22,7 +22,7 @@ function lerFiltros() {
 
 function filtrarCursos(filtros) {
   const termo = normalizar(filtros.busca.trim());
-  return CURSOS.filter(
+  return obterCursos().filter(
     (curso) =>
       normalizar(curso.nome).includes(termo) &&
       (filtros.area === "" || curso.area === filtros.area) &&

@@ -529,3 +529,22 @@ input.campo--ok, textarea.campo--ok { border-color: var(--color-success); }
 
 /* Botões de ação dentro das tabelas não quebram em duas linhas */
 .tabela--empilhavel .btn { white-space: nowrap; }
+
+/* Painel de responsáveis */
+.painel-secao { margin-top: var(--spacing-xl); }
+.painel-form { margin-top: var(--spacing-lg); max-width: 760px; }
+.acoes-linha { display: flex; gap: var(--spacing-sm); flex-wrap: wrap; }
+
+/* Usabilidade: alvos de toque maiores nos botões pequenos em telas de celular */
+@media (max-width: 640px) {
+  .btn--sm { min-height: 40px; padding: 8px 14px; }
+}
+
+/* Usabilidade: alvos de toque e contraste (ajustes feitos na avaliação da 3ª entrega) */
+.rotulo-checkbox input { width: 20px; height: 20px; }
+.badge--neutro { color: #475569; }
+
+@media (max-width: 719px) {
+  .navbar__toggle { min-height: 44px; }
+  .navbar__menu a { display: block; padding: 10px 4px; }
+}

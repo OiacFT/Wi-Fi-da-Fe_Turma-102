@@ -26,6 +26,7 @@ src/
 │   ├── curso-detalhe.html   → Detalhes de um curso (lê ?id= da URL)
 │   ├── avisos.html          → Central de avisos e prazos (filtros e "marcar como lido")
 │   ├── perfil.html          → Perfil do usuário (acesso restrito à sessão)
+│   ├── painel.html          → Painel de responsáveis (adicionar, editar e excluir cursos e avisos)
 │   ├── sobre.html           → Sobre o projeto (problema, missão, ODS e FAQ)
 │   └── contato.html         → Fale conosco (validação e contador de caracteres)
 ├── styles/
@@ -37,12 +38,13 @@ src/
     ├── validacao.js         → Regras e mensagens de validação dos formulários
     ├── main.js              → Menu mobile, área do usuário, funções de apoio e acordeão (FAQ)
     └── home.js, cursos.js, curso-detalhe.js, avisos.js,
-        login.js, cadastro.js, perfil.js, contato.js → Um script por tela
+        login.js, cadastro.js, perfil.js, painel.js, contato.js → Um script por tela
 assets/
 └── img/                  → Imagens e ícones
 docs/
 ├── prototipo/                  → Capturas de tela do protótipo (9 telas)
 ├── evidencias-3a-entrega/      → Capturas da aplicação em execução (desktop, tablet e celular)
+├── roteiro-teste-usabilidade.md → Roteiro do teste de usabilidade com estudantes (4ª entrega)
 ├── 2a_Entrega_Wi-Fi_da_Fe.docx / .pdf → Documento da 2ª entrega
 └── 3a_Entrega_Wi-Fi_da_Fe.docx / .pdf → Documento da 3ª entrega
 ```
@@ -54,6 +56,7 @@ docs/
 - **Cadastro, login, contato e edição de perfil**: mensagens de erro por campo (`aria-invalid`), correção em tempo real, mostrar/ocultar senha e indicador de força da senha.
 - **Perfil**: acesso restrito sem sessão, edição dos dados, status de cada curso salvo, sair e excluir dados locais.
 - **Sobre**: perguntas frequentes em acordeão.
+- **Painel de responsáveis**: contas do tipo "Responsável por cursos e prazos" (escolhido no cadastro) adicionam, editam e excluem cursos e avisos, com validação. As alterações aparecem em Início, Cursos, Detalhes e Avisos e podem ser desfeitas com "Restaurar dados de exemplo".
 
 Os dados não saem do navegador do usuário e são perdidos se o armazenamento for limpo. A senha nunca é armazenada e o login é uma simulação sem servidor.
 
@@ -72,7 +75,7 @@ Protótipo interativo (Figma Make): https://www.figma.com/make/cEJHfMpYyU8SYLpI3
 1. Cadastro e Login de usuário (via localStorage): implementada
 2. Busca e filtros de cursos e práticas de formação (área, modalidade, período): implementada
 3. Central de avisos e prazos: implementada
-4. Painel de atualização de informações (responsáveis): planejada para a entrega final
+4. Painel de atualização de informações (responsáveis): implementada
 5. Página de detalhes de curso/prática de formação: implementada
 6. Perfil do usuário (cursos de interesse salvos no navegador): implementada
 
@@ -85,5 +88,5 @@ Protótipo interativo (Figma Make): https://www.figma.com/make/cEJHfMpYyU8SYLpI3
 - Roberto Reis da Mata Filho – RA: 26018001
 
 ## Status do projeto
-3ª Entrega: front-end consolidado, com as 9 telas funcionais, navegação operacional, layout responsivo e interações em JavaScript.
-Próximas etapas: testes de usabilidade, documentação de bugs, painel de atualização para responsáveis e entrega final.
+3ª Entrega: front-end consolidado, com as 10 telas funcionais (incluindo o painel de responsáveis), navegação operacional, layout responsivo e interações em JavaScript.
+Próximas etapas: testes de usabilidade com estudantes, documentação de bugs e entrega final.

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Painel de responsáveis | Wi-Fi da Fé</title>
+  <meta name="description" content="Painel para responsáveis atualizarem cursos, práticas de formação e prazos do Wi-Fi da Fé.">
+  <link rel="stylesheet" href="../styles/variables.css">
+  <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="navbar">
+    <div class="container">
+      <a class="navbar__brand" href="index.html"><span class="sinal">📶</span> Wi-Fi da Fé</a>
+      <button type="button" class="navbar__toggle" id="menu-toggle" aria-expanded="false" aria-controls="navbar-menu">☰ Menu</button>
+      <nav aria-label="Menu principal">
+        <ul class="navbar__menu" id="navbar-menu">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="cursos.html">Cursos</a></li>
+          <li><a href="avisos.html">Avisos</a></li>
+          <li><a href="perfil.html">Perfil</a></li>
+        </ul>
+      </nav>
+      <div class="navbar__actions">
+        <a class="btn btn--ghost btn--sm" href="login.html">Entrar</a>
+        <a class="btn btn--primary btn--sm" href="cadastro.html">Criar conta</a>
+      </div>
+    </div>
+  </header>
+
+  <noscript>
+    <p class="aviso-noscript">Este site usa JavaScript para listar cursos, validar formulários e guardar seus dados no navegador. Ative o JavaScript para usar todas as funções.</p>
+  </noscript>
+
+  <main class="section" id="conteudo">
+    <div class="container">
+      <section class="card vazio" id="painel-restrito" hidden>
+        <h1>Acesso restrito</h1>
+        <p class="text-muted" id="painel-motivo"></p>
+        <div class="form-actions" id="painel-link-login">
+          <a class="btn btn--primary" href="login.html">Entrar</a>
+          <a class="btn btn--ghost" href="cadastro.html">Criar conta</a>
+        </div>
+      </section>
+
+      <div id="painel-conteudo" hidden>
+        <div class="section__header">
+          <h1>Painel de responsáveis</h1>
+          <p>Atualize os cursos, as práticas de formação e os prazos. As alterações ficam salvas neste navegador e aparecem em Início, Cursos, Detalhes e Avisos.</p>
+        </div>
+
+        <p id="mensagem-painel" class="mensagem" role="status" aria-live="polite" hidden></p>
+
+        <section class="painel-secao">
+          <h2>Cursos e práticas de formação</h2>
+          <p class="contagem" id="resumo-cursos" role="status" aria-live="polite"></p>
+          <div class="tabela-wrap">
+            <table class="tabela--empilhavel">
+              <caption>Cursos e práticas cadastrados</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Área</th>
+                  <th scope="col">Modalidade</th>
+                  <th scope="col">Período</th>
+                  <th scope="col">Ações</th>
+                </tr>
+              </thead>
+              <tbody id="painel-cursos-corpo"></tbody>
+            </table>
+          </div>
+
+          <form class="card painel-form" id="form-curso" novalidate>
+            <h3 id="titulo-form-curso">Adicionar curso ou prática</h3>
+            <label for="curso-nome">Nome do curso ou prática</label>
+            <input type="text" id="curso-nome" name="curso-nome" data-regra="nomecurso" aria-describedby="erro-curso-nome">
+            <p class="erro-campo" id="erro-curso-nome"></p>
+            <div class="form-row">
+              <div>
+            <label for="curso-area">Área</label>
+            <select id="curso-area" name="curso-area">
+              <option>Tecnologia</option>
+              <option>Saúde</option>
+              <option>Negócios</option>
+              <option>Humanas</option>
+            </select>
+              </div>
+              <div>
+            <label for="curso-modalidade">Modalidade</label>
+            <select id="curso-modalidade" name="curso-modalidade">
+              <option>Graduação</option>
+              <option>Prática de Formação</option>
+              <option>Extensão</option>
+            </select>
+              </div>
+              <div>
+            <label for="curso-periodo">Período</label>
+            <select id="curso-periodo" name="curso-periodo">
+              <option>Matutino</option>
+              <option>Noturno</option>
+              <option>Integral</option>
+              <option>EAD</option>
+            </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div>
+            <label for="curso-carga">Carga horária</label>
+            <input type="text" id="curso-carga" name="curso-carga" data-regra="obrigatorio" aria-describedby="erro-curso-carga" placeholder="Ex.: 120 horas">
+            <p class="erro-campo" id="erro-curso-carga"></p>
+              </div>
+              <div>
+            <label for="curso-duracao">Duração</label>
+            <input type="text" id="curso-duracao" name="curso-duracao" data-regra="obrigatorio" aria-describedby="erro-curso-duracao" placeholder="Ex.: 1 semestre">
+            <p class="erro-campo" id="erro-curso-duracao"></p>
+              </div>
+            </div>
+            <label for="curso-responsavel">Responsável</label>
+            <input type="text" id="curso-responsavel" name="curso-responsavel" data-regra="obrigatorio" aria-describedby="erro-curso-responsavel">
+            <p class="erro-campo" id="erro-curso-responsavel"></p>
+            <label for="curso-resumo">Descrição curta</label>
+            <textarea id="curso-resumo" name="curso-resumo" rows="3" data-regra="resumo" aria-describedby="erro-curso-resumo"></textarea>
+            <p class="erro-campo" id="erro-curso-resumo"></p>
+            <label for="curso-conteudo">Conteúdo programático (um item por linha)</label>
+            <textarea id="curso-conteudo" name="curso-conteudo" rows="4" data-regra="conteudo" aria-describedby="erro-curso-conteudo"></textarea>
+            <p class="erro-campo" id="erro-curso-conteudo"></p>
+            <label class="rotulo-checkbox"><input type="checkbox" id="curso-destaque" name="curso-destaque"> Mostrar em "Cursos em destaque" na tela inicial</label>
+            <div class="form-actions">
+              <button type="submit" class="btn btn--primary" id="btn-salvar-curso">Adicionar curso</button>
+              <button type="button" class="btn btn--ghost" id="btn-cancelar-curso" hidden>Cancelar edição</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="painel-secao">
+          <h2>Avisos e prazos</h2>
+          <p class="contagem" id="resumo-avisos-painel" role="status" aria-live="polite"></p>
+          <div class="tabela-wrap">
+            <table class="tabela--empilhavel">
+              <caption>Avisos e prazos cadastrados</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Data</th>
+                  <th scope="col">Aviso</th>
+                  <th scope="col">Categoria</th>
+                  <th scope="col">Curso</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Ações</th>
+                </tr>
+              </thead>
+              <tbody id="painel-avisos-corpo"></tbody>
+            </table>
+          </div>
+
+          <form class="card painel-form" id="form-aviso" novalidate>
+            <h3 id="titulo-form-aviso">Adicionar aviso ou prazo</h3>
+            <label for="aviso-titulo">Título do aviso</label>
+            <input type="text" id="aviso-titulo" name="aviso-titulo" data-regra="titulo" aria-describedby="erro-aviso-titulo">
+            <p class="erro-campo" id="erro-aviso-titulo"></p>
+            <div class="form-row">
+              <div>
+            <label for="aviso-data">Data do prazo</label>
+            <input type="date" id="aviso-data" name="aviso-data" data-regra="data" aria-describedby="erro-aviso-data">
+            <p class="erro-campo" id="erro-aviso-data"></p>
+              </div>
+              <div>
+            <label for="aviso-categoria">Categoria</label>
+            <select id="aviso-categoria" name="aviso-categoria">
+              <option>Graduação</option>
+              <option>Prática de Formação</option>
+              <option>Extensão</option>
+            </select>
+              </div>
+            </div>
+            <label for="aviso-curso">Curso relacionado</label>
+            <select id="aviso-curso" name="aviso-curso"></select>
+            <div class="form-actions">
+              <button type="submit" class="btn btn--primary" id="btn-salvar-aviso">Adicionar aviso</button>
+              <button type="button" class="btn btn--ghost" id="btn-cancelar-aviso" hidden>Cancelar edição</button>
+            </div>
+          </form>
+        </section>
+
+        <p class="form-hint">Este painel funciona só no navegador (localStorage). Não há servidor que confira quem é responsável.</p>
+        <button type="button" class="btn btn--perigo" id="btn-restaurar">Restaurar dados de exemplo</button>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <address>
+        Projeto Integrador — Wi-Fi da Fé (Turma 102)<br>
+        Contato: <a href="mailto:wifidafe@puc-campinas.edu.br">wifidafe@puc-campinas.edu.br</a>
+      </address>
+      <nav aria-label="Links institucionais">
+        <ul class="footer__links">
+          <li><a href="sobre.html">Sobre o projeto</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="../scripts/dados.js" defer></script>
+  <script src="../scripts/storage.js" defer></script>
+  <script src="../scripts/validacao.js" defer></script>
+  <script src="../scripts/main.js" defer></script>
+  <script src="../scripts/painel.js" defer></script>
+</body>
+</html>

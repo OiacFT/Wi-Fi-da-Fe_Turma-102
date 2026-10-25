@@ -3,11 +3,11 @@ const destaques = document.getElementById("destaques");
 const proximosPrazos = document.getElementById("proximos-prazos");
 
 if (destaques) {
-  CURSOS.filter((curso) => curso.destaque).slice(0, 3).forEach((curso) => destaques.append(criarCartaoCurso(curso)));
+  obterCursos().filter((curso) => curso.destaque).slice(0, 3).forEach((curso) => destaques.append(criarCartaoCurso(curso)));
 }
 
 if (proximosPrazos) {
-  const futuros = AVISOS.filter((aviso) => diasAte(aviso.data) >= 0)
+  const futuros = obterAvisos().filter((aviso) => diasAte(aviso.data) >= 0)
     .sort((a, b) => a.data.localeCompare(b.data))
     .slice(0, 3);
   futuros.forEach((aviso) => {

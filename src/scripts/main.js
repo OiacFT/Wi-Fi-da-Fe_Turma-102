@@ -79,11 +79,27 @@ if (botaoMenu && listaMenu) {
   });
 }
 
+// Contas de responsáveis ganham o item "Painel" no menu (atualização de cursos e prazos).
+function ehResponsavel(usuario) {
+  return Boolean(usuario) && usuario.tipo === "responsavel";
+}
+
+function adicionarItemPainel() {
+  if (!listaMenu || listaMenu.querySelector('a[href="painel.html"]')) return;
+  const item = criarElemento("li");
+  const link = criarElemento("a", "", "Painel");
+  link.href = "painel.html";
+  if (window.location.pathname.endsWith("painel.html")) link.setAttribute("aria-current", "page");
+  item.append(link);
+  listaMenu.append(item);
+}
+
 // ----- Área do usuário na barra superior (Entrar/Criar conta -> Olá, Nome + Sair) -----
 function atualizarNavbarUsuario() {
   const usuario = obterUsuarioLogado();
   const acoes = document.querySelector(".navbar__actions");
   if (!usuario || !acoes) return;
+  if (ehResponsavel(usuario)) adicionarItemPainel();
   const perfil = criarElemento("a", "btn btn--ghost btn--sm", "Olá, " + usuario.nome.split(" ")[0]);
   perfil.href = "perfil.html";
   const sair = criarElemento("button", "btn btn--primary btn--sm", "Sair");

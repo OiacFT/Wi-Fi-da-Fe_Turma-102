@@ -60,6 +60,7 @@
               <button type="button" class="btn btn--ghost btn--sm" data-alternar-senha="senha" aria-pressed="false">Mostrar</button>
             </div>
             <p class="erro-campo" id="erro-senha"></p>
+            <p class="form-hint">Mínimo de 6 caracteres.</p>
             <p id="forca-senha" class="forca-senha" aria-live="polite"></p>
 
             <label for="confirmar-senha">Confirmar senha</label>
@@ -82,6 +83,13 @@
               <option>Direito</option>
               <option>Outro</option>
             </select>
+
+            <label for="tipo">Tipo de conta</label>
+            <select id="tipo" name="tipo">
+              <option value="estudante">Estudante</option>
+              <option value="responsavel">Responsável por cursos e prazos</option>
+            </select>
+            <p class="form-hint">Responsáveis têm acesso ao painel para atualizar cursos e avisos.</p>
 
             <label class="rotulo-checkbox"><input type="checkbox" id="termos" name="termos" data-regra="termos" aria-describedby="erro-termos"> Aceito os <a href="sobre.html">termos de uso</a></label>
             <p class="erro-campo" id="erro-termos"></p>

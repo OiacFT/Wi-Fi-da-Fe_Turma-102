@@ -4,7 +4,7 @@
   --color-primary-dark: #312e81;
   --color-primary-light: #6d5ce8;
   --color-accent: #f59e0b;
-  --color-accent-dark: #b45309;
+  --color-accent-dark: #92400e;
 
   /* Neutros */
   --color-bg: #f8fafc;
@@ -14,8 +14,8 @@
   --color-text-muted: #64748b;
 
   /* Estados */
-  --color-success: #16a34a;
-  --color-danger: #dc2626;
+  --color-success: #15803d;
+  --color-danger: #b91c1c;
   --color-success-bg: #ecfdf3;
   --color-danger-bg: #fef2f2;
 
