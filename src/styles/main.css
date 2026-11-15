@@ -232,6 +232,9 @@ legend { font-weight: 700; padding: 0 6px; color: var(--color-primary-dark); }
 
 label { display: block; margin: var(--spacing-sm) 0 6px; font-weight: 600; font-size: 0.9rem; }
 
+/* Botões herdam a fonte da página (o WebKit usa uma fonte serifada por padrão). */
+button { font-family: inherit; }
+
 input, select, textarea {
   width: 100%;
   padding: 10px 12px;

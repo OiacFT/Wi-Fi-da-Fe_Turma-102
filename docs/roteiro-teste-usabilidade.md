@@ -1,6 +1,6 @@
 # Roteiro do teste de usabilidade com usuários (Wi-Fi da Fé)
 
-Este roteiro serve para o teste com estudantes previsto para a 4ª entrega (Jira: SCRUM-48). Ele não substitui a avaliação de usabilidade feita pelo grupo na 3ª entrega (ver seção 6.3 do documento), que usou medições automáticas e não envolveu usuários.
+Este roteiro serve para o teste com estudantes (Jira: SCRUM-48), que já estava previsto na 3ª entrega e foi mantido como próximo passo na 4ª. Ele não substitui a avaliação de usabilidade feita pelo grupo na 3ª entrega (ver seção 6.3 do documento), que usou medições automáticas e não envolveu usuários.
 
 ## Preparação
 - Participantes: 5 estudantes da PUC-Campinas que não participaram do projeto.
@@ -46,3 +46,13 @@ E duas perguntas abertas: "O que mais atrapalhou?" e "O que você mudaria primei
 - Taxa de sucesso por tarefa (meta: pelo menos 4 de 5 participantes concluem sozinhos).
 - Tarefas com mais tempo e mais erros viram itens no Jira, em ordem de prioridade.
 - Anotar no documento o que foi mudado por causa do teste e o resultado depois da mudança.
+
+## Material pronto para aplicar o teste
+- `teste-usabilidade/ficha-teste-usabilidade.pdf` (e `.docx`): ficha de observação de 2 páginas, uma por participante, com a fala de abertura, as tarefas, a tabela de registro, as perguntas finais e as perguntas abertas.
+- `teste-usabilidade/tarefas.csv` e `teste-usabilidade/notas.csv`: planilhas vazias, só com o cabeçalho. Preencher uma linha por participante e tarefa (tarefas.csv; resultado = sim, com dica ou nao) e uma linha por participante (notas.csv).
+- `../testes/analisar_usabilidade.py`: lê as duas planilhas e imprime as tabelas de resultado (taxa de sucesso sem ajuda, tempo médio, erros e média das notas) já em formato Markdown, para colar na seção 6 do documento.
+
+## Depois do teste
+1. Passar as marcações das fichas para as planilhas CSV.
+2. Rodar `python testes/analisar_usabilidade.py` na pasta do projeto.
+3. Cada tarefa abaixo da meta vira um item no Jira, em ordem de prioridade; no documento, registrar o que foi mudado e o resultado depois da mudança.

@@ -1,0 +1,343 @@
+{
+ "contraste": [
+  {
+   "par": "Texto principal sobre fundo",
+   "razao": 13.98,
+   "minimo": 4.5,
+   "ok": true
+  },
+  {
+   "par": "Texto principal sobre cartão",
+   "razao": 14.63,
+   "minimo": 4.5,
+   "ok": true
+  },
+  {
+   "par": "Texto secundário sobre cartão",
+   "razao": 4.76,
+   "minimo": 4.5,
+   "ok": true
+  },
+  {
+   "par": "Link/botão primário (texto branco)",
+   "razao": 7.9,
+   "minimo": 4.5,
+   "ok": true
+  },
+  {
+   "par": "Botão âmbar (texto escuro)",
+   "razao": 8.55,
+   "minimo": 4.5,
+   "ok": true
+  },
+  {
+   "par": "Selo \"Em breve\" (âmbar escuro)",
+   "razao": 6.31,
+   "minimo": 4.5,
+   "ok": true
+  },
+  {
+   "par": "Selo \"Urgente\"",
+   "razao": 5.91,
+   "minimo": 4.5,
+   "ok": true
+  },
+  {
+   "par": "Selo \"Em dia\"",
+   "razao": 4.76,
+   "minimo": 4.5,
+   "ok": true
+  },
+  {
+   "par": "Mensagem de erro",
+   "razao": 5.91,
+   "minimo": 4.5,
+   "ok": true
+  },
+  {
+   "par": "Rodapé (texto claro)",
+   "razao": 9.27,
+   "minimo": 4.5,
+   "ok": true
+  },
+  {
+   "par": "Selo \"Encerrado\"",
+   "razao": 6.15,
+   "minimo": 4.5,
+   "ok": true
+  },
+  {
+   "par": "Indicador \"Senha média\"",
+   "razao": 7.09,
+   "minimo": 4.5,
+   "ok": true
+  },
+  {
+   "par": "Texto secundário sobre fundo",
+   "razao": 4.55,
+   "minimo": 4.5,
+   "ok": true
+  }
+ ],
+ "paginas": [
+  {
+   "titulo": "Wi-Fi da Fé | Cursos, Práticas de Formação e Avisos da PUC-Campinas",
+   "lang": "pt-br",
+   "h1": 1,
+   "main": 1,
+   "nav": 2,
+   "header": 1,
+   "footer": 1,
+   "skip": true,
+   "campos": 0,
+   "semRotulo": 0,
+   "semNome": 0,
+   "estiloInline": 0,
+   "scriptInline": 0,
+   "pagina": "index"
+  },
+  {
+   "titulo": "Entrar | Wi-Fi da Fé",
+   "lang": "pt-br",
+   "h1": 1,
+   "main": 1,
+   "nav": 2,
+   "header": 1,
+   "footer": 1,
+   "skip": true,
+   "campos": 3,
+   "semRotulo": 0,
+   "semNome": 0,
+   "estiloInline": 0,
+   "scriptInline": 0,
+   "pagina": "login"
+  },
+  {
+   "titulo": "Criar Conta | Wi-Fi da Fé",
+   "lang": "pt-br",
+   "h1": 1,
+   "main": 1,
+   "nav": 2,
+   "header": 1,
+   "footer": 1,
+   "skip": true,
+   "campos": 7,
+   "semRotulo": 0,
+   "semNome": 0,
+   "estiloInline": 0,
+   "scriptInline": 0,
+   "pagina": "cadastro"
+  },
+  {
+   "titulo": "Cursos e Práticas de Formação | Wi-Fi da Fé",
+   "lang": "pt-br",
+   "h1": 1,
+   "main": 1,
+   "nav": 2,
+   "header": 1,
+   "footer": 1,
+   "skip": true,
+   "campos": 4,
+   "semRotulo": 0,
+   "semNome": 0,
+   "estiloInline": 0,
+   "scriptInline": 0,
+   "pagina": "cursos"
+  },
+  {
+   "titulo": "Psicologia | Wi-Fi da Fé",
+   "lang": "pt-br",
+   "h1": 1,
+   "main": 1,
+   "nav": 2,
+   "header": 1,
+   "footer": 1,
+   "skip": true,
+   "campos": 0,
+   "semRotulo": 0,
+   "semNome": 0,
+   "estiloInline": 0,
+   "scriptInline": 0,
+   "pagina": "curso-detalhe?id=psicologia"
+  },
+  {
+   "titulo": "Central de Avisos e Prazos | Wi-Fi da Fé",
+   "lang": "pt-br",
+   "h1": 1,
+   "main": 1,
+   "nav": 2,
+   "header": 1,
+   "footer": 1,
+   "skip": true,
+   "campos": 3,
+   "semRotulo": 0,
+   "semNome": 0,
+   "estiloInline": 0,
+   "scriptInline": 0,
+   "pagina": "avisos"
+  },
+  {
+   "titulo": "Meu Perfil | Wi-Fi da Fé",
+   "lang": "pt-br",
+   "h1": 1,
+   "main": 1,
+   "nav": 2,
+   "header": 1,
+   "footer": 1,
+   "skip": true,
+   "campos": 0,
+   "semRotulo": 0,
+   "semNome": 0,
+   "estiloInline": 0,
+   "scriptInline": 0,
+   "pagina": "perfil"
+  },
+  {
+   "titulo": "Painel de responsáveis | Wi-Fi da Fé",
+   "lang": "pt-br",
+   "h1": 1,
+   "main": 1,
+   "nav": 2,
+   "header": 1,
+   "footer": 1,
+   "skip": true,
+   "campos": 0,
+   "semRotulo": 0,
+   "semNome": 0,
+   "estiloInline": 0,
+   "scriptInline": 0,
+   "pagina": "painel"
+  },
+  {
+   "titulo": "Sobre | Wi-Fi da Fé",
+   "lang": "pt-br",
+   "h1": 1,
+   "main": 1,
+   "nav": 2,
+   "header": 1,
+   "footer": 1,
+   "skip": true,
+   "campos": 0,
+   "semRotulo": 0,
+   "semNome": 0,
+   "estiloInline": 0,
+   "scriptInline": 0,
+   "pagina": "sobre"
+  },
+  {
+   "titulo": "Contato | Wi-Fi da Fé",
+   "lang": "pt-br",
+   "h1": 1,
+   "main": 1,
+   "nav": 2,
+   "header": 1,
+   "footer": 1,
+   "skip": true,
+   "campos": 4,
+   "semRotulo": 0,
+   "semNome": 0,
+   "estiloInline": 0,
+   "scriptInline": 0,
+   "pagina": "contato"
+  }
+ ],
+ "alvos_toque": [
+  {
+   "pagina": "index",
+   "menores_que_36px": []
+  },
+  {
+   "pagina": "cursos",
+   "menores_que_36px": []
+  },
+  {
+   "pagina": "avisos",
+   "menores_que_36px": [
+    {
+     "t": "ocultar-lidos",
+     "w": 20,
+     "h": 20
+    }
+   ]
+  },
+  {
+   "pagina": "cadastro",
+   "menores_que_36px": [
+    {
+     "t": "termos",
+     "w": 20,
+     "h": 20
+    }
+   ]
+  },
+  {
+   "pagina": "contato",
+   "menores_que_36px": []
+  }
+ ],
+ "tarefas": [
+  {
+   "tarefa": "Descobrir o prazo de matrícula de Engenharia da Computação",
+   "perfil": "desktop",
+   "interacoes": 3,
+   "concluida": true,
+   "passos": [
+    "clicar em Ver cursos disponíveis",
+    "digitar \"engenharia\" na busca",
+    "clicar em Ver detalhes"
+   ]
+  },
+  {
+   "tarefa": "Ver só os avisos urgentes",
+   "perfil": "desktop",
+   "interacoes": 2,
+   "concluida": true,
+   "passos": [
+    "clicar em Avisos no menu",
+    "escolher o status Urgente"
+   ]
+  },
+  {
+   "tarefa": "Criar conta, salvar um curso e conferir no perfil",
+   "perfil": "desktop",
+   "interacoes": 12,
+   "concluida": true,
+   "passos": [
+    "clicar em Criar conta",
+    "preencher o nome",
+    "preencher o e-mail",
+    "preencher a senha",
+    "confirmar a senha",
+    "aceitar os termos",
+    "clicar em Criar conta",
+    "clicar em Cursos no menu",
+    "digitar \"psico\" na busca",
+    "clicar em Ver detalhes de Psicologia",
+    "clicar em Salvar interesse",
+    "clicar em Perfil no menu"
+   ]
+  },
+  {
+   "tarefa": "Responsável adiciona um aviso (conta já criada)",
+   "perfil": "desktop",
+   "interacoes": 4,
+   "concluida": true,
+   "passos": [
+    "clicar em Painel no menu",
+    "preencher o título do aviso",
+    "escolher a data",
+    "clicar em Adicionar aviso"
+   ]
+  },
+  {
+   "tarefa": "Abrir a lista de cursos pelo celular",
+   "perfil": "celular",
+   "interacoes": 2,
+   "concluida": true,
+   "passos": [
+    "tocar em Menu",
+    "tocar em Cursos"
+   ]
+  }
+ ]
+}

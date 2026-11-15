@@ -1,0 +1,602 @@
+[
+ [
+  "Início: 3 cursos em destaque gerados pelo JS",
+  true
+ ],
+ [
+  "Início: 3 próximos prazos (apenas futuros)",
+  true
+ ],
+ [
+  "Início: prazo mais próximo é o de 23/10 (vence em 2 dias)",
+  true
+ ],
+ [
+  "Início: aviso encerrado (09/10) não aparece",
+  true
+ ],
+ [
+  "Início: link do card aponta para ?id=",
+  true
+ ],
+ [
+  "Cursos: 10 cursos listados",
+  true
+ ],
+ [
+  "Cursos: busca 'psico' encontra 2",
+  true
+ ],
+ [
+  "Cursos: busca ignora acentos (administracao -> 2)",
+  true
+ ],
+ [
+  "Cursos: botão Filtrar não recarrega a página e mantém o filtro",
+  true
+ ],
+ [
+  "Cursos: filtro área Tecnologia -> 3",
+  true
+ ],
+ [
+  "Cursos: Tecnologia + Extensão -> 1 (singular)",
+  true
+ ],
+ [
+  "Cursos: combinação sem resultado mostra mensagem",
+  true
+ ],
+ [
+  "Cursos: filtros restaurados do sessionStorage ao voltar",
+  true
+ ],
+ [
+  "Cursos: Limpar filtros volta aos 10 cursos",
+  true
+ ],
+ [
+  "Detalhes: título e dados do curso",
+  true
+ ],
+ [
+  "Detalhes: prazo do curso listado",
+  true
+ ],
+ [
+  "Detalhes: título da aba atualizado",
+  true
+ ],
+ [
+  "Detalhes: sem login mostra aviso para entrar",
+  true
+ ],
+ [
+  "Detalhes: id inválido mostra 'Curso não encontrado'",
+  true
+ ],
+ [
+  "Detalhes: sem id mostra 'Curso não encontrado'",
+  true
+ ],
+ [
+  "Detalhes: salvar sem login leva ao login",
+  true
+ ],
+ [
+  "Perfil sem sessão: acesso restrito e conteúdo oculto",
+  true
+ ],
+ [
+  "Sem erros de JavaScript (Início a Perfil)",
+  true
+ ],
+ [
+  "Cadastro vazio: erro em nome, e-mail, senha, confirmação e termos",
+  true
+ ],
+ [
+  "Cadastro vazio: aria-invalid e mensagem geral",
+  true
+ ],
+ [
+  "Cadastro vazio: foco no primeiro campo inválido",
+  true
+ ],
+ [
+  "Cadastro vazio: nada gravado",
+  true
+ ],
+ [
+  "Cadastro: nome sem sobrenome",
+  true
+ ],
+ [
+  "Cadastro: e-mail inválido",
+  true
+ ],
+ [
+  "Cadastro: senha curta",
+  true
+ ],
+ [
+  "Cadastro: erro some ao corrigir (tempo real)",
+  true
+ ],
+ [
+  "Cadastro: força fraca",
+  true
+ ],
+ [
+  "Cadastro: força média",
+  true
+ ],
+ [
+  "Cadastro: força forte",
+  true
+ ],
+ [
+  "Cadastro: senhas diferentes",
+  true
+ ],
+ [
+  "Cadastro: alterar a senha reavalia a confirmação",
+  true
+ ],
+ [
+  "Cadastro: botão Mostrar troca o tipo do campo",
+  true
+ ],
+ [
+  "Cadastro: Ocultar volta para password",
+  true
+ ],
+ [
+  "Cadastro: termos obrigatórios",
+  true
+ ],
+ [
+  "Cadastro válido: mensagem de sucesso",
+  true
+ ],
+ [
+  "Cadastro: conta salva no localStorage sem senha",
+  true
+ ],
+ [
+  "Cadastro: sessão no sessionStorage (não no localStorage)",
+  true
+ ],
+ [
+  "Perfil: dados do usuário e conteúdo visível",
+  true
+ ],
+ [
+  "Perfil: navbar mostra 'Olá, Maria' e Sair",
+  true
+ ],
+ [
+  "Perfil: tabela vazia orienta a salvar cursos",
+  true
+ ],
+ [
+  "Detalhes logado: salvar curso",
+  true
+ ],
+ [
+  "Detalhes: estado 'salvo' lembrado após recarregar",
+  true
+ ],
+ [
+  "Perfil: 2 cursos salvos na tabela",
+  true
+ ],
+ [
+  "Perfil: status alterado e persistido",
+  true
+ ],
+ [
+  "Perfil: remover curso atualiza a lista",
+  true
+ ],
+ [
+  "Perfil: formulário de edição aparece com os valores atuais",
+  true
+ ],
+ [
+  "Perfil: edição inválida (sem sobrenome) bloqueada",
+  true
+ ],
+ [
+  "Perfil: dados atualizados na tela, navbar e storage",
+  true
+ ],
+ [
+  "Logout: sessão removida e mensagem exibida",
+  true
+ ],
+ [
+  "Logout: conta e cursos continuam salvos",
+  true
+ ],
+ [
+  "Após logout o perfil é restrito",
+  true
+ ],
+ [
+  "Login vazio: erros nos dois campos",
+  true
+ ],
+ [
+  "Login: e-mail sem conta",
+  true
+ ],
+ [
+  "Login: senha curta bloqueada",
+  true
+ ],
+ [
+  "Login válido: mensagem de sucesso",
+  true
+ ],
+ [
+  "Login 'manter conectado': sessão no localStorage",
+  true
+ ],
+ [
+  "Login: e-mail comparado sem diferenciar maiúsculas",
+  true
+ ],
+ [
+  "Excluir conta: apaga tudo que o site gravou",
+  true
+ ],
+ [
+  "Sem erros de JavaScript (Cadastro, Perfil, Login)",
+  true
+ ],
+ [
+  "Avisos: 9 linhas ordenadas por data",
+  true
+ ],
+ [
+  "Avisos: rodapé 'Total de avisos ativos' = 8 (1 encerrado fica de fora)",
+  true
+ ],
+ [
+  "Avisos: resumo com urgentes",
+  true
+ ],
+ [
+  "Avisos: status calculado pela data (21/10/2026)",
+  true
+ ],
+ [
+  "Avisos: filtro por categoria",
+  true
+ ],
+ [
+  "Avisos: Extensão + urgente -> vazio",
+  true
+ ],
+ [
+  "Avisos: filtro por status encerrado",
+  true
+ ],
+ [
+  "Avisos: marcar como lido altera linha e botão",
+  true
+ ],
+ [
+  "Avisos: leitura persistida no localStorage",
+  true
+ ],
+ [
+  "Avisos: ocultar lidos",
+  true
+ ],
+ [
+  "Sem erros de JavaScript (Avisos)",
+  true
+ ],
+ [
+  "Contato vazio: erros em nome, e-mail e mensagem",
+  true
+ ],
+ [
+  "Contato: mensagem curta",
+  true
+ ],
+ [
+  "Contato: contador de caracteres e alerta",
+  true
+ ],
+ [
+  "Contato válido: mensagem registrada com assunto e data",
+  true
+ ],
+ [
+  "Contato: sucesso, campo limpo e total atualizado",
+  true
+ ],
+ [
+  "Contato: total persiste ao recarregar",
+  true
+ ],
+ [
+  "Sem erros de JavaScript (Contato)",
+  true
+ ],
+ [
+  "Painel sem login: acesso restrito e conteúdo oculto",
+  true
+ ],
+ [
+  "Painel: conta de estudante não vê o item Painel no menu",
+  true
+ ],
+ [
+  "Painel: estudante recebe acesso restrito com o motivo",
+  true
+ ],
+ [
+  "Painel: responsável vê o tipo de conta, o link e o item Painel no menu",
+  true
+ ],
+ [
+  "Painel: responsável acessa e vê as tabelas de cursos e avisos",
+  true
+ ],
+ [
+  "Painel: item do menu fica marcado como página atual",
+  true
+ ],
+ [
+  "Painel: curso vazio mostra erros em todos os campos obrigatórios",
+  true
+ ],
+ [
+  "Painel: curso adicionado, mensagem de sucesso e formulário limpo",
+  true
+ ],
+ [
+  "Cursos: o novo curso aparece na lista (11 cursos)",
+  true
+ ],
+ [
+  "Cursos: busca (sem acento) encontra o curso criado no painel",
+  true
+ ],
+ [
+  "Detalhes: dados e conteúdo do curso criado (linhas vazias ignoradas)",
+  true
+ ],
+ [
+  "Painel: Editar preenche o formulário e muda o título e o botão",
+  true
+ ],
+ [
+  "Painel: edição do curso aparece nos detalhes",
+  true
+ ],
+ [
+  "Painel: aviso vazio mostra erros de título e data",
+  true
+ ],
+ [
+  "Painel: aviso adicionado com status Urgente",
+  true
+ ],
+ [
+  "Avisos: o aviso criado no painel aparece (10 linhas, 2 urgentes)",
+  true
+ ],
+ [
+  "Início: aviso novo entra nos próximos prazos em ordem de data",
+  true
+ ],
+ [
+  "Painel: excluir curso o remove e deixa o aviso como geral",
+  true
+ ],
+ [
+  "Painel: curso excluído sai da lista de salvos do perfil",
+  true
+ ],
+ [
+  "Painel: alterações persistem após recarregar",
+  true
+ ],
+ [
+  "Painel: restaurar volta aos dados de exemplo (10 cursos, 9 avisos)",
+  true
+ ],
+ [
+  "Sem erros de JavaScript (Painel)",
+  true
+ ],
+ [
+  "Sobre: respostas do FAQ começam ocultas",
+  true
+ ],
+ [
+  "Sobre: acordeão abre (aria-expanded e texto visível)",
+  true
+ ],
+ [
+  "Sobre: acordeão fecha",
+  true
+ ],
+ [
+  "Sem erros de JavaScript (Sobre)",
+  true
+ ],
+ [
+  "Segurança: nome com HTML é exibido como texto (sem executar)",
+  true
+ ],
+ [
+  "Responsivo celular (360px): index sem rolagem horizontal",
+  true
+ ],
+ [
+  "Responsivo celular (360px): login sem rolagem horizontal",
+  true
+ ],
+ [
+  "Responsivo celular (360px): cadastro sem rolagem horizontal",
+  true
+ ],
+ [
+  "Responsivo celular (360px): cursos sem rolagem horizontal",
+  true
+ ],
+ [
+  "Responsivo celular (360px): curso-detalhe?id=psicologia sem rolagem horizontal",
+  true
+ ],
+ [
+  "Responsivo celular (360px): avisos sem rolagem horizontal",
+  true
+ ],
+ [
+  "Responsivo celular (360px): perfil sem rolagem horizontal",
+  true
+ ],
+ [
+  "Responsivo celular (360px): painel sem rolagem horizontal",
+  true
+ ],
+ [
+  "Responsivo celular (360px): sobre sem rolagem horizontal",
+  true
+ ],
+ [
+  "Responsivo celular (360px): contato sem rolagem horizontal",
+  true
+ ],
+ [
+  "Responsivo celular: tabela de avisos empilhada (cabeçalho oculto)",
+  true
+ ],
+ [
+  "Responsivo celular: botão de menu visível e menu recolhido",
+  true
+ ],
+ [
+  "Responsivo celular: menu abre pelo botão (aria-expanded)",
+  true
+ ],
+ [
+  "Responsivo celular: Esc fecha o menu",
+  true
+ ],
+ [
+  "Sem erros de JavaScript (celular)",
+  true
+ ],
+ [
+  "Responsivo tablet (768px): index sem rolagem horizontal",
+  true
+ ],
+ [
+  "Responsivo tablet (768px): login sem rolagem horizontal",
+  true
+ ],
+ [
+  "Responsivo tablet (768px): cadastro sem rolagem horizontal",
+  true
+ ],
+ [
+  "Responsivo tablet (768px): cursos sem rolagem horizontal",
+  true
+ ],
+ [
+  "Responsivo tablet (768px): curso-detalhe?id=psicologia sem rolagem horizontal",
+  true
+ ],
+ [
+  "Responsivo tablet (768px): avisos sem rolagem horizontal",
+  true
+ ],
+ [
+  "Responsivo tablet (768px): perfil sem rolagem horizontal",
+  true
+ ],
+ [
+  "Responsivo tablet (768px): painel sem rolagem horizontal",
+  true
+ ],
+ [
+  "Responsivo tablet (768px): sobre sem rolagem horizontal",
+  true
+ ],
+ [
+  "Responsivo tablet (768px): contato sem rolagem horizontal",
+  true
+ ],
+ [
+  "Responsivo tablet: tabela de avisos em colunas",
+  true
+ ],
+ [
+  "Responsivo tablet: menu horizontal sempre visível",
+  true
+ ],
+ [
+  "Sem erros de JavaScript (tablet)",
+  true
+ ],
+ [
+  "Responsivo desktop (1280px): index sem rolagem horizontal",
+  true
+ ],
+ [
+  "Responsivo desktop (1280px): login sem rolagem horizontal",
+  true
+ ],
+ [
+  "Responsivo desktop (1280px): cadastro sem rolagem horizontal",
+  true
+ ],
+ [
+  "Responsivo desktop (1280px): cursos sem rolagem horizontal",
+  true
+ ],
+ [
+  "Responsivo desktop (1280px): curso-detalhe?id=psicologia sem rolagem horizontal",
+  true
+ ],
+ [
+  "Responsivo desktop (1280px): avisos sem rolagem horizontal",
+  true
+ ],
+ [
+  "Responsivo desktop (1280px): perfil sem rolagem horizontal",
+  true
+ ],
+ [
+  "Responsivo desktop (1280px): painel sem rolagem horizontal",
+  true
+ ],
+ [
+  "Responsivo desktop (1280px): sobre sem rolagem horizontal",
+  true
+ ],
+ [
+  "Responsivo desktop (1280px): contato sem rolagem horizontal",
+  true
+ ],
+ [
+  "Responsivo desktop: tabela de avisos em colunas",
+  true
+ ],
+ [
+  "Responsivo desktop: menu horizontal sempre visível",
+  true
+ ],
+ [
+  "Sem erros de JavaScript (desktop)",
+  true
+ ]
+]

@@ -2,7 +2,7 @@
 
 Plataforma web que centraliza informações sobre cursos de graduação, práticas de formação e prazos da PUC-Campinas, hoje dispersas entre e-mails, avisos e o site institucional. Projeto acadêmico sem fins lucrativos (Terceiro Setor), alinhado à ODS 4 (Educação de Qualidade) e ODS 9 (Indústria, Inovação e Infraestrutura).
 
-## Tecnologias (3ª Entrega)
+## Tecnologias
 - HTML5 semântico
 - CSS3 (Flexbox, Grid, responsividade mobile-first)
 - JavaScript (eventos, manipulação do DOM, validação de formulários e persistência de dados)
@@ -44,10 +44,31 @@ assets/
 docs/
 ├── prototipo/                  → Capturas de tela do protótipo (9 telas)
 ├── evidencias-3a-entrega/      → Capturas da aplicação em execução (desktop, tablet e celular)
-├── roteiro-teste-usabilidade.md → Roteiro do teste de usabilidade com estudantes (4ª entrega)
+├── evidencias-4a-entrega/      → Capturas nos três navegadores e quadro do Jira (Sprint 3)
+├── teste-usabilidade/          → Ficha de observação (PDF/DOCX) e planilhas tarefas.csv e notas.csv
+├── roteiro-teste-usabilidade.md → Roteiro do teste de usabilidade com estudantes
 ├── 2a_Entrega_Wi-Fi_da_Fe.docx / .pdf → Documento da 2ª entrega
-└── 3a_Entrega_Wi-Fi_da_Fe.docx / .pdf → Documento da 3ª entrega
+├── 3a_Entrega_Wi-Fi_da_Fe.docx / .pdf → Documento da 3ª entrega
+└── 4a_Entrega_Wi-Fi_da_Fe.docx / .pdf → Documento da 4ª entrega
+testes/
+├── test_site.py                → 150 verificações automatizadas (Chromium, Firefox ou WebKit)
+├── test_usabilidade.py         → Contraste, estrutura, alvos de toque e passos por tarefa
+├── evidencias_navegadores.py   → Capturas lado a lado nos três navegadores
+├── analisar_usabilidade.py     → Resultados do teste com estudantes a partir das planilhas
+└── resultados/                 → Resultado de cada rodada (JSON)
 ```
+
+## Testes
+Os testes usam Playwright (Python). Instalação e execução, na pasta do projeto:
+
+```
+pip install playwright
+playwright install chromium firefox webkit
+python testes/test_site.py chromium      # ou firefox, ou webkit
+python testes/test_usabilidade.py chromium
+```
+
+As 150 verificações e as medições de usabilidade passam nos três navegadores. O WebKit do Playwright usa o motor do Safari, mas não é o Safari de um aparelho real. Para o teste de usabilidade com estudantes, veja `docs/roteiro-teste-usabilidade.md` e rode `python testes/analisar_usabilidade.py` depois de preencher as planilhas.
 
 ## Interações em JavaScript
 - **Cursos**: busca por nome (sem diferenciar acentos) e filtros por área, modalidade e período em tempo real, com contador de resultados e filtros lembrados no `sessionStorage`.
@@ -66,9 +87,10 @@ Protótipo interativo (Figma Make): https://www.figma.com/make/cEJHfMpYyU8SYLpI3
 ## Documentos das entregas
 - 2ª Entrega (protótipo, planejamento Scrum e início da implementação): [`docs/2a_Entrega_Wi-Fi_da_Fe.pdf`](docs/2a_Entrega_Wi-Fi_da_Fe.pdf)
 - 3ª Entrega (consolidação da implementação): [`docs/3a_Entrega_Wi-Fi_da_Fe.pdf`](docs/3a_Entrega_Wi-Fi_da_Fe.pdf)
+- 4ª Entrega (refinamento, requisitos em tabelas e testes em três navegadores): [`docs/4a_Entrega_Wi-Fi_da_Fe.pdf`](docs/4a_Entrega_Wi-Fi_da_Fe.pdf)
 
 ## Gestão do projeto
-- Jira: projeto "Wi-Fi da Fé - Turma 102" (Backlog, Sprints 0 a 2, Quadro Kanban e versões Release 1.0 a 2.0).
+- Jira: projeto "Wi-Fi da Fé - Turma 102" (Backlog, Sprints 0 a 3, Quadro Kanban e versões Release 1.0 a 2.0).
 - Repositório GitHub do grupo: https://github.com/OiacFT/Wi-Fi-da-Fe_Turma-102
 
 ## Funcionalidades mapeadas (1ª entrega)
@@ -88,5 +110,5 @@ Protótipo interativo (Figma Make): https://www.figma.com/make/cEJHfMpYyU8SYLpI3
 - Roberto Reis da Mata Filho – RA: 26018001
 
 ## Status do projeto
-3ª Entrega: front-end consolidado, com as 10 telas funcionais (incluindo o painel de responsáveis), navegação operacional, layout responsivo e interações em JavaScript.
-Próximas etapas: testes de usabilidade com estudantes, documentação de bugs e entrega final.
+4ª Entrega: front-end consolidado (10 telas funcionais), regras de negócio e restrições em tabelas no documento, testes automatizados em Chromium, Firefox e WebKit e material pronto para o teste de usabilidade com estudantes.
+Próximas etapas: aplicar o teste com estudantes, completar o registro de bugs e a entrega final.
