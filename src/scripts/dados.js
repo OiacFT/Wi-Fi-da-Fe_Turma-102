@@ -137,15 +137,27 @@ const CURSOS = [
 
 // Avisos e prazos de exemplo. O status (Encerrado, Urgente, Em breve ou Em dia) é calculado
 // pelo JavaScript a partir da data de cada aviso e do dia atual.
+// Para que a demonstração sempre mostre os quatro status, a data de cada aviso de exemplo é
+// "hoje + N dias". Os valores de N reproduzem as datas de 09/10 a 20/11/2026 quando hoje é
+// 21/10/2026, o dia fixado nos testes automatizados. O aviso do relatório de extensão tem data fixa.
+function dataEmDias(dias) {
+  const d = new Date();
+  d.setHours(0, 0, 0, 0);
+  d.setDate(d.getDate() + dias);
+  const mes = String(d.getMonth() + 1).padStart(2, "0");
+  const dia = String(d.getDate()).padStart(2, "0");
+  return d.getFullYear() + "-" + mes + "-" + dia;
+}
+
 const AVISOS = [
-  { id: "av-01", data: "2026-10-09", titulo: "Matrícula — Administração", categoria: "Graduação", cursoId: "administracao" },
-  { id: "av-02", data: "2026-10-23", titulo: "Encerramento de inscrições — Estágio em Psicologia Clínica", categoria: "Prática de Formação", cursoId: "estagio-psicologia" },
-  { id: "av-03", data: "2026-10-28", titulo: "Matrícula — Engenharia da Computação", categoria: "Graduação", cursoId: "eng-computacao" },
-  { id: "av-04", data: "2026-10-30", titulo: "Entrega de documentos — Prática de Formação em Direito Comunitário", categoria: "Extensão", cursoId: "direito-comunitario" },
-  { id: "av-05", data: "2026-11-04", titulo: "Inscrições — Oficina de Desenvolvimento Web", categoria: "Extensão", cursoId: "oficina-web" },
-  { id: "av-06", data: "2026-11-10", titulo: "Matrícula — Sistemas de Informação", categoria: "Graduação", cursoId: "sistemas-informacao" },
-  { id: "av-07", data: "2026-11-13", titulo: "Entrega do relatório — Estágio em Administração", categoria: "Prática de Formação", cursoId: "estagio-administracao" },
-  { id: "av-08", data: "2026-11-20", titulo: "Inscrições — Educação Financeira Comunitária", categoria: "Extensão", cursoId: "educacao-financeira" },
+  { id: "av-01", data: dataEmDias(-12), titulo: "Matrícula — Administração", categoria: "Graduação", cursoId: "administracao" },
+  { id: "av-02", data: dataEmDias(2), titulo: "Encerramento de inscrições — Estágio em Psicologia Clínica", categoria: "Prática de Formação", cursoId: "estagio-psicologia" },
+  { id: "av-03", data: dataEmDias(7), titulo: "Matrícula — Engenharia da Computação", categoria: "Graduação", cursoId: "eng-computacao" },
+  { id: "av-04", data: dataEmDias(9), titulo: "Entrega de documentos — Prática de Formação em Direito Comunitário", categoria: "Extensão", cursoId: "direito-comunitario" },
+  { id: "av-05", data: dataEmDias(14), titulo: "Inscrições — Oficina de Desenvolvimento Web", categoria: "Extensão", cursoId: "oficina-web" },
+  { id: "av-06", data: dataEmDias(20), titulo: "Matrícula — Sistemas de Informação", categoria: "Graduação", cursoId: "sistemas-informacao" },
+  { id: "av-07", data: dataEmDias(23), titulo: "Entrega do relatório — Estágio em Administração", categoria: "Prática de Formação", cursoId: "estagio-administracao" },
+  { id: "av-08", data: dataEmDias(30), titulo: "Inscrições — Educação Financeira Comunitária", categoria: "Extensão", cursoId: "educacao-financeira" },
   { id: "av-09", data: "2026-11-27", titulo: "Entrega do relatório individual de extensão", categoria: "Extensão", cursoId: "" },
 ];
 

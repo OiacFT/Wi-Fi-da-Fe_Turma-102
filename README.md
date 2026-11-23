@@ -44,8 +44,8 @@ assets/
 docs/
 ├── prototipo/                  → Capturas de tela do protótipo (9 telas)
 ├── evidencias-3a-entrega/      → Capturas da aplicação em execução (desktop, tablet e celular)
-├── evidencias-4a-entrega/      → Capturas nos três navegadores e quadro do Jira (Sprint 3)
-├── teste-usabilidade/          → Ficha de observação (PDF/DOCX) e planilhas tarefas.csv e notas.csv
+├── evidencias-4a-entrega/      → Capturas nos três navegadores, site em funcionamento (22/11), fotos do Jira e do Git
+├── teste-usabilidade/          → Ficha de observação, planilhas, resultados e as 4 fichas preenchidas anonimizadas (fichas/)
 ├── roteiro-teste-usabilidade.md → Roteiro do teste de usabilidade com estudantes
 ├── 2a_Entrega_Wi-Fi_da_Fe.docx / .pdf → Documento da 2ª entrega
 ├── 3a_Entrega_Wi-Fi_da_Fe.docx / .pdf → Documento da 3ª entrega
@@ -54,6 +54,7 @@ testes/
 ├── test_site.py                → 150 verificações automatizadas (Chromium, Firefox ou WebKit)
 ├── test_usabilidade.py         → Contraste, estrutura, alvos de toque e passos por tarefa
 ├── evidencias_navegadores.py   → Capturas lado a lado nos três navegadores
+├── test_datas_exemplo.py       → 6 verificações das datas dos avisos de exemplo (23/11, 30/11 e 21/10/2026)
 ├── analisar_usabilidade.py     → Resultados do teste com estudantes a partir das planilhas
 └── resultados/                 → Resultado de cada rodada (JSON)
 ```
@@ -66,9 +67,10 @@ pip install playwright
 playwright install chromium firefox webkit
 python testes/test_site.py chromium      # ou firefox, ou webkit
 python testes/test_usabilidade.py chromium
+python testes/test_datas_exemplo.py chromium
 ```
 
-As 150 verificações e as medições de usabilidade passam nos três navegadores. O WebKit do Playwright usa o motor do Safari, mas não é o Safari de um aparelho real. Para o teste de usabilidade com estudantes, veja `docs/roteiro-teste-usabilidade.md` e rode `python testes/analisar_usabilidade.py` depois de preencher as planilhas.
+As 150 verificações, as medições de usabilidade e as 6 verificações das datas de exemplo passam nos três navegadores. As datas dos avisos de exemplo são calculadas a partir do dia atual (função `dataEmDias`, em `dados.js`), para que a demonstração sempre mostre os status Encerrado, Urgente, Em breve e Em dia; só o aviso do relatório de extensão (27/11/2026) tem data fixa. O WebKit do Playwright usa o motor do Safari, mas não é o Safari de um aparelho real. Para o teste de usabilidade com estudantes, veja `docs/roteiro-teste-usabilidade.md` e rode `python testes/analisar_usabilidade.py` depois de preencher as planilhas.
 
 ## Interações em JavaScript
 - **Cursos**: busca por nome (sem diferenciar acentos) e filtros por área, modalidade e período em tempo real, com contador de resultados e filtros lembrados no `sessionStorage`.
@@ -87,7 +89,7 @@ Protótipo interativo (Figma Make): https://www.figma.com/make/cEJHfMpYyU8SYLpI3
 ## Documentos das entregas
 - 2ª Entrega (protótipo, planejamento Scrum e início da implementação): [`docs/2a_Entrega_Wi-Fi_da_Fe.pdf`](docs/2a_Entrega_Wi-Fi_da_Fe.pdf)
 - 3ª Entrega (consolidação da implementação): [`docs/3a_Entrega_Wi-Fi_da_Fe.pdf`](docs/3a_Entrega_Wi-Fi_da_Fe.pdf)
-- 4ª Entrega (refinamento, requisitos em tabelas e testes em três navegadores): [`docs/4a_Entrega_Wi-Fi_da_Fe.pdf`](docs/4a_Entrega_Wi-Fi_da_Fe.pdf)
+- 4ª Entrega (validação final da solução e documentação): [`docs/4a_Entrega_Wi-Fi_da_Fe.pdf`](docs/4a_Entrega_Wi-Fi_da_Fe.pdf)
 
 ## Gestão do projeto
 - Jira: projeto "Wi-Fi da Fé - Turma 102" (Backlog, Sprints 0 a 3, Quadro Kanban e versões Release 1.0 a 2.0).
@@ -110,5 +112,5 @@ Protótipo interativo (Figma Make): https://www.figma.com/make/cEJHfMpYyU8SYLpI3
 - Roberto Reis da Mata Filho – RA: 26018001
 
 ## Status do projeto
-4ª Entrega: front-end consolidado (10 telas funcionais), regras de negócio e restrições em tabelas no documento, testes automatizados em Chromium, Firefox e WebKit e material pronto para o teste de usabilidade com estudantes.
+4ª Entrega (validação final): front-end consolidado (10 telas funcionais), regras de negócio e restrições em tabelas, testes automatizados em Chromium, Firefox e WebKit, datas de exemplo que acompanham o dia atual, documento reorganizado conforme o enunciado e material pronto para o teste de usabilidade com estudantes.
 Próximas etapas: aplicar o teste com estudantes, completar o registro de bugs e a entrega final.

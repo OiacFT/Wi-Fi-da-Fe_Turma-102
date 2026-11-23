@@ -1,1 +1,25 @@
 ﻿participante,dispositivo,tarefa,resultado,tempo_s,erros,observacao
+P0 (piloto automatizado),computador e celular emulado,1,sim,,,"Achou pela busca; a data está em Detalhes (28/10/2026, selo Encerrado)."
+P0 (piloto automatizado),computador e celular emulado,2,sim,,,"Filtro funciona, mas a lista veio vazia (0 de 9): nenhum prazo vencia até 24/11 (datas de exemplo fixas)."
+P0 (piloto automatizado),computador e celular emulado,3,sim,,,"2 erros provocados (senha curta e termos) com mensagens claras; a busca ""psicologia"" traz 2 cursos parecidos."
+P0 (piloto automatizado),computador e celular emulado,4,sim,,,"Contato só aparece no rodapé, fora do menu principal; 1 erro provocado."
+P0 (piloto automatizado),computador e celular emulado,5,sim,,,"Botão Menu de 44 px abre e leva a Cursos, sem rolagem lateral."
+P0 (piloto automatizado),computador e celular emulado,6,sim,,,Conta de responsável substitui a de estudante (com confirmação); Painel só aparece depois do login.
+P1,computador,1,sim,3,,
+P1,computador,2,sim,3,,
+P1,computador,3,sim,12,,
+P1,computador,4,sim,3,,
+P1,computador,5,sim,2,,Feita no computador.
+P1,computador,6,sim,10,,
+P2,computador,1,sim,60,0,
+P2,computador,2,sim,40,0,
+P2,computador,3,sim,180,1,
+P2,computador,4,sim,300,0,Tarefa mais demorada de todas; a ficha não registra o motivo.
+P2,computador,5,nao aplicada,,,"Tarefa de celular, não aplicada."
+P2,computador,6,nao aplicada,,,"Tarefa de responsável, não aplicada."
+P3,computador,1,,5,,Resultado não marcado na ficha.
+P3,computador,2,com dica,1,,"Observação do aplicador: ""colocar mais cor""."
+P3,computador,3,,10,,Resultado não marcado na ficha.
+P3,computador,4,,3,,Resultado não marcado na ficha.
+P3,computador,5,,1,,Resultado não marcado na ficha.
+P3,computador,6,,3,,Resultado não marcado na ficha.

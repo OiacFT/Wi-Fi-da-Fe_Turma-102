@@ -1,10 +1,10 @@
 # Roteiro do teste de usabilidade com usuários (Wi-Fi da Fé)
 
-Este roteiro serve para o teste com estudantes (Jira: SCRUM-48), que já estava previsto na 3ª entrega e foi mantido como próximo passo na 4ª. Ele não substitui a avaliação de usabilidade feita pelo grupo na 3ª entrega (ver seção 6.3 do documento), que usou medições automáticas e não envolveu usuários.
+Este roteiro serve para o teste com estudantes (Jira: SCRUM-48), que estava previsto desde a 3ª entrega e foi aplicado em 20 e 21/11/2026. Ele não substitui a avaliação de usabilidade feita pelo grupo na 3ª entrega (ver seção 6.3 do documento), que usou medições automáticas e não envolveu usuários.
 
 ## Preparação
-- Participantes: 5 estudantes da PUC-Campinas que não participaram do projeto.
-- Ambiente: o site aberto no navegador (`index.html`), com o armazenamento do navegador limpo antes de cada participante. Se possível, 3 pessoas no computador e 2 no celular.
+- Testes: 4 fichas. Na aplicação real foram 3 estudantes da PUC-Campinas que não participaram do projeto e 1 piloto automatizado (ver `teste-usabilidade/resultados-teste-usabilidade.md`).
+- Ambiente: o site aberto no navegador (`index.html`), com o armazenamento do navegador limpo antes de cada participante. Se possível, metade das pessoas no computador e metade no celular.
 - Quem aplica o teste lê a tarefa, não dá dicas e anota o que a pessoa faz. Quem testa é o site, não o participante.
 
 ## Tarefas
@@ -43,7 +43,7 @@ E duas perguntas abertas: "O que mais atrapalhou?" e "O que você mudaria primei
 | 6 | | | | |
 
 ## Como analisar
-- Taxa de sucesso por tarefa (meta: pelo menos 4 de 5 participantes concluem sozinhos).
+- Taxa de sucesso por tarefa (meta: pelo menos 3 de 4 testes com a tarefa concluída sozinha).
 - Tarefas com mais tempo e mais erros viram itens no Jira, em ordem de prioridade.
 - Anotar no documento o que foi mudado por causa do teste e o resultado depois da mudança.
 
